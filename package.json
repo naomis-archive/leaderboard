@@ -14,6 +14,8 @@
     "lint": "npm-run-all -p lint:**",
     "lint:client": "cd ./client && npm run lint",
     "lint:server": "cd ./api && npm run lint",
+    "start:client": "cd ./client && npm run start",
+    "start:server": "cd ./api && npm run start",
     "test": "npm-run-all -p test:**",
     "test:client": "cd ./client && npm run test",
     "test:server": "cd ./api && npm run test"
