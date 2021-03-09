@@ -1,0 +1,44 @@
+{
+  "name": "leaderboard",
+  "version": "1.0.0",
+  "description": "A leaderboard thing I guess",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm-run-all -p install:**",
+    "install:client": "cd ./client && npm ci",
+    "install:server": "cd ./api && npm ci",
+    "build": "npm-run-all -p build:**",
+    "build:client": "cd ./client && npm run build",
+    "build:server": "cd ./api && npm run build",
+    "develop": "concurrently 'cd ./client && npm start' 'cd ./api && npm start'",
+    "lint": "npm-run-all -p lint:**",
+    "lint:client": "cd ./client && npm run lint",
+    "lint:server": "cd ./api && npm run lint",
+    "start:client": "cd ./client && npm run start",
+    "start:server": "cd ./api && npm run start",
+    "test": "npm-run-all -p test:**",
+    "test:client": "cd ./client && npm run test",
+    "test:server": "cd ./api && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhcarrigan/leaderboard.git"
+  },
+  "keywords": [
+    "angular",
+    "typescript",
+    "node"
+  ],
+  "author": "Nicholas Carrigan",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/nhcarrigan/leaderboard/issues"
+  },
+  "homepage": "https://github.com/nhcarrigan/leaderboard#readme",
+  "dependencies": {
+    "concurrently": "^6.0.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
