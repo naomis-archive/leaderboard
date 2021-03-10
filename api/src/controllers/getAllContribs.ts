@@ -21,6 +21,7 @@ export const getAllContribs = async (): Promise<ContribDataInt> => {
       forum: testForumData,
       github: testGithubData,
       news: testNewsData,
+      updated_on: new Date(Date.now()),
     };
 
     return testContribData;
@@ -74,6 +75,7 @@ export const getAllContribs = async (): Promise<ContribDataInt> => {
     forum: forumData,
     github: githubData,
     news: newsData,
+    updated_on: new Date(Date.now()),
   };
 
   return contribData;

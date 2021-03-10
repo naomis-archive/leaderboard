@@ -8,4 +8,5 @@ export interface ContribDataInt {
   forum: ForumContribInt[];
   github: GithubContribInt[];
   news: NewsContribInt[];
+  updated_on: Date;
 }
