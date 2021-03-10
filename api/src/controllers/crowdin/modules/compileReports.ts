@@ -34,7 +34,9 @@ export const compileReports = (
     }
   }
 
-  const sorted = compiled.sort((a, b) => b.translations - a.translations);
+  const sorted = compiled
+    .sort((a, b) => b.translations - a.translations)
+    .filter((cont) => cont.translations > 0);
 
   return sorted;
 };
