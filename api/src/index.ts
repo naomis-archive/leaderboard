@@ -1,19 +1,28 @@
 import express from "express";
 import { getAllContribs } from "./controllers/getAllContribs";
+import Spinnies from "spinnies";
+
+export const spinnies = new Spinnies();
 
 (async () => {
-  console.log("Starting server!");
+  spinnies.add("server-start", { color: "cyan", text: "Starting server..." });
   const API = express();
 
-  console.log("Getting data...");
+  spinnies.add("fetch-data", {
+    color: "cyan",
+    text: "Getting contribution data...",
+  });
 
   const contributionData = await getAllContribs();
 
-  console.log("Data get!");
+  spinnies.succeed("fetch-data", { color: "green", text: "Got data!" });
 
   console.log(contributionData.crowdin.slice(0, 10));
 
   API.listen(process.env.PORT || 3000, () => {
-    console.log("Api is live on " + (process.env.PORT || 3000));
+    spinnies.succeed("server-start", {
+      color: "magenta",
+      text: `API is live on ${process.env.PORT || 3000}`,
+    });
   });
 })();
