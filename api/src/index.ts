@@ -1,6 +1,7 @@
 import express from "express";
 import { getAllContribs } from "./controllers/getAllContribs";
 import Spinnies from "spinnies";
+import { sendData } from "./routes/sendData";
 
 export const spinnies = new Spinnies();
 
@@ -16,6 +17,8 @@ export const spinnies = new Spinnies();
   const contributionData = await getAllContribs();
 
   spinnies.succeed("fetch-data", { color: "green", text: "Got data!" });
+
+  API.get("/get-data", (req, res) => sendData(req, res, contributionData));
 
   API.listen(process.env.PORT || 3000, () => {
     spinnies.succeed("server-start", {
