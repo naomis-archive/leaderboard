@@ -1,13 +1,27 @@
+import chalk from "chalk";
 import { spinnies } from "..";
-import { testCrowdinData, testForumData } from "../data/testContribData";
+import {
+  testCrowdinData,
+  testForumData,
+  testGithubData,
+} from "../data/testContribData";
 import { ContribDataInt } from "../interfaces/ContribDataInt";
 import { getCrowdinContribs } from "./crowdin/getCrowdinContribs";
 import { getForumContribs } from "./forum/getForumContribs";
 import { getGithubContribs } from "./github/getGithubContribs";
 
 export const getAllContribs = async (): Promise<ContribDataInt> => {
-  /*
-  Live Data calls here
+  // Generate test data in development environment
+  if (process.env.NODE_ENV === "development") {
+    console.log(chalk.cyan("Development mode detected. Loading test data."));
+    const testContribData: ContribDataInt = {
+      crowdin: testCrowdinData,
+      forum: testForumData,
+      github: testGithubData,
+    };
+
+    return testContribData;
+  }
 
   spinnies.add("get-crowdin", {
     color: "cyan",
@@ -28,9 +42,6 @@ export const getAllContribs = async (): Promise<ContribDataInt> => {
     color: "green",
     text: "Got forum contributions!",
   });
-  */
-
-  // This loads test data to avoid loads of API calls during development
 
   spinnies.add("get-github", {
     color: "cyan",
@@ -46,8 +57,8 @@ export const getAllContribs = async (): Promise<ContribDataInt> => {
   console.log(githubData);
 
   const contribData: ContribDataInt = {
-    crowdin: testCrowdinData,
-    forum: testForumData,
+    crowdin: crowdinData,
+    forum: forumData,
     github: githubData,
   };
 
