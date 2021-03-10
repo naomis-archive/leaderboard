@@ -4,11 +4,13 @@ import {
   testCrowdinData,
   testForumData,
   testGithubData,
+  testNewsData,
 } from "../data/testContribData";
 import { ContribDataInt } from "../interfaces/ContribDataInt";
 import { getCrowdinContribs } from "./crowdin/getCrowdinContribs";
 import { getForumContribs } from "./forum/getForumContribs";
 import { getGithubContribs } from "./github/getGithubContribs";
+import { getNewsContribs } from "./news/getNewsContribs";
 
 export const getAllContribs = async (): Promise<ContribDataInt> => {
   // Generate test data in development environment
@@ -18,6 +20,7 @@ export const getAllContribs = async (): Promise<ContribDataInt> => {
       crowdin: testCrowdinData,
       forum: testForumData,
       github: testGithubData,
+      news: testNewsData,
     };
 
     return testContribData;
@@ -54,12 +57,23 @@ export const getAllContribs = async (): Promise<ContribDataInt> => {
     text: "Got github contributions!",
   });
 
-  console.log(githubData);
+  spinnies.add("get-news", {
+    color: "cyan",
+    text: "Getting news contributions...",
+  });
+
+  const newsData = await getNewsContribs();
+
+  spinnies.succeed("get-news", {
+    color: "green",
+    text: "Got news contributions!",
+  });
 
   const contribData: ContribDataInt = {
     crowdin: crowdinData,
     forum: forumData,
     github: githubData,
+    news: newsData,
   };
 
   return contribData;
