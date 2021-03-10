@@ -1,8 +1,9 @@
-import { TotalContribsInt } from "./crowdin/TotalContribsInt";
+import { CrowdinContribsInt } from "./crowdin/CrowdinContribsInt";
+import { ForumContribInt } from "./forum/ForumContribInt";
 
 export interface ContribDataInt {
-  crowdin: TotalContribsInt[];
-  forum?: unknown;
+  crowdin: CrowdinContribsInt[];
+  forum: ForumContribInt[];
   github?: unknown;
   news?: unknown;
 }

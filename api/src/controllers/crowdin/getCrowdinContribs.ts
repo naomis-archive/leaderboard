@@ -3,14 +3,14 @@ import { spinnies } from "../..";
 import { crowdinProjectList } from "../../config/crowdinProjectList";
 import { sleep } from "../../helpers/sleep";
 import { FinalReportInt } from "../../interfaces/crowdin/FinalReportInt";
-import { TotalContribsInt } from "../../interfaces/crowdin/TotalContribsInt";
+import { CrowdinContribsInt } from "../../interfaces/crowdin/CrowdinContribsInt";
 import { checkReportStatus } from "./modules/checkReportStatus";
 import { compileReports } from "./modules/compileReports";
 import { downloadReport } from "./modules/downloadReport";
 import { generateReport } from "./modules/generateReport";
 import { getReportDownloadUrl } from "./modules/getReportDownloadUrl";
 
-export const getCrowdinContribs = async (): Promise<TotalContribsInt[]> => {
+export const getCrowdinContribs = async (): Promise<CrowdinContribsInt[]> => {
   const credentials = process.env.CROWDIN_API_KEY;
 
   if (!credentials) {

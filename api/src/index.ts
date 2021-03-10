@@ -17,8 +17,6 @@ export const spinnies = new Spinnies();
 
   spinnies.succeed("fetch-data", { color: "green", text: "Got data!" });
 
-  console.log(contributionData.crowdin.slice(0, 10));
-
   API.listen(process.env.PORT || 3000, () => {
     spinnies.succeed("server-start", {
       color: "magenta",

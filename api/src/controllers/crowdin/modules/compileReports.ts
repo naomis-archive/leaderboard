@@ -1,10 +1,10 @@
 import { FinalReportInt } from "../../../interfaces/crowdin/FinalReportInt";
-import { TotalContribsInt } from "../../../interfaces/crowdin/TotalContribsInt";
+import { CrowdinContribsInt } from "../../../interfaces/crowdin/CrowdinContribsInt";
 
 export const compileReports = (
   reportList: FinalReportInt[]
-): TotalContribsInt[] => {
-  const compiled: TotalContribsInt[] = [];
+): CrowdinContribsInt[] => {
+  const compiled: CrowdinContribsInt[] = [];
 
   for (const report of reportList) {
     const contribs = report.data;
