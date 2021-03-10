@@ -1,7 +1,9 @@
 import { ForumContribInt } from "../../../interfaces/forum/ForumContribInt";
 import { ForumDataInt } from "../../../interfaces/forum/ForumDataInt";
 
-export const compileForumData = (data: ForumDataInt): ForumContribInt[] => {
+export const compileForumData = async (
+  data: ForumDataInt
+): Promise<ForumContribInt[]> => {
   const finalData: ForumContribInt[] = [];
 
   const userList = data.directory_items;

@@ -9,7 +9,7 @@ export const compileReports = (
   for (const report of reportList) {
     const contribs = report.data;
     for (const contributor of contribs) {
-      const name = contributor.user.username;
+      const name = contributor.user.fullName;
       const languages = contributor.languages.map((lang) => lang.name);
       const translations = contributor.translated;
       const avatar = contributor.user.avatarURL;

@@ -21,7 +21,7 @@ export const getForumContribs = async (): Promise<ForumContribInt[]> => {
     text: "Mapping forum data...",
   });
 
-  const parsedForumContribs = compileForumData(forumContribs);
+  const parsedForumContribs = await compileForumData(forumContribs);
 
   spinnies.succeed("forum-data-compile", {
     color: "green",

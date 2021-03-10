@@ -19,7 +19,7 @@ export const compileCommits = async (
       name: commit.commit.author.name,
       commits: 1,
       avatar: commit.author.avatar_url,
-      url: commit.author.url,
+      url: commit.author.html_url,
     };
 
     totals.push(contrib);
