@@ -3,4 +3,6 @@ export interface ForumContribInt {
   name: string;
   likes: number;
   liked: number;
+  avatar: string;
+  url: string;
 }

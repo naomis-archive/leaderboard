@@ -13,7 +13,7 @@ export const compileNewsData = async (
     const name = post.primary_author.name;
     const url = post.primary_author.url || "https://freecodecamp.org/news";
     const avatar = post.primary_author.profile_image || "";
-
+    const username = post.primary_author.slug;
     const exists = totalData.find((el) => el.name === name);
 
     if (exists) {
@@ -21,7 +21,7 @@ export const compileNewsData = async (
       continue;
     }
 
-    totalData.push({ name, url, avatar, posts: 1 });
+    totalData.push({ name, username, url, avatar, posts: 1 });
   }
 
   return totalData;

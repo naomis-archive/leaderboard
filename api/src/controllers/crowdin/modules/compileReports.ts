@@ -12,6 +12,7 @@ export const compileReports = (
       const name = contributor.user.username;
       const languages = contributor.languages.map((lang) => lang.name);
       const translations = contributor.translated;
+      const avatar = contributor.user.avatarURL;
 
       const exists = compiled.find((el) => el.name === name);
       if (!exists) {
@@ -19,6 +20,7 @@ export const compileReports = (
           name,
           languages,
           translations,
+          avatar,
         });
         continue;
       }
