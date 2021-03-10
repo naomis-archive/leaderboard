@@ -24,5 +24,5 @@ export const compileForumData = async (
     finalData.push(properData);
   }
 
-  return finalData;
+  return finalData.filter((user) => user.likes > 0);
 };

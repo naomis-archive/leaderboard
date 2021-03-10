@@ -27,16 +27,6 @@ export const getAllContribs = async (): Promise<ContribDataInt> => {
     return testContribData;
   }
 
-  spinnies.add("get-crowdin", {
-    color: "cyan",
-    text: "Getting crowdin contributions...",
-  });
-  const crowdinData = await getCrowdinContribs();
-  spinnies.succeed("get-crowdin", {
-    color: "green",
-    text: "Got crowdin contributions!",
-  });
-
   spinnies.add("get-forum", {
     color: "cyan",
     text: "Getting forum data...",
@@ -45,6 +35,16 @@ export const getAllContribs = async (): Promise<ContribDataInt> => {
   spinnies.succeed("get-forum", {
     color: "green",
     text: "Got forum contributions!",
+  });
+
+  spinnies.add("get-crowdin", {
+    color: "cyan",
+    text: "Getting crowdin contributions...",
+  });
+  const crowdinData = await getCrowdinContribs();
+  spinnies.succeed("get-crowdin", {
+    color: "green",
+    text: "Got crowdin contributions!",
   });
 
   spinnies.add("get-github", {
