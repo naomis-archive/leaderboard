@@ -3,6 +3,7 @@ import { getAllContribs } from "./controllers/getAllContribs";
 import Spinnies from "spinnies";
 import { sendData } from "./routes/sendData";
 import { FourOhFour } from "./routes/FourOhFour";
+import cors from "cors";
 
 export const spinnies = new Spinnies();
 
@@ -19,6 +20,23 @@ export const API = express();
   const contributionData = await getAllContribs();
 
   spinnies.succeed("fetch-data", { color: "green", text: "Got data!" });
+
+  const allowedOrigins = [
+    "https://leaderboard.nhcarrigan.com",
+    "http://localhost:4200",
+  ];
+
+  API.use(
+    cors({
+      origin: (origin, callback) => {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
+    })
+  );
 
   API.get("/", FourOhFour);
 
