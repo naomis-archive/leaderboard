@@ -6,5 +6,5 @@ export const sendData = (
   res: Response,
   data: ContribDataInt
 ): void => {
-  res.json(data);
+  res.status(200).json(data);
 };
