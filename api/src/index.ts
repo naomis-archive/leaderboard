@@ -6,9 +6,10 @@ import { FourOhFour } from "./routes/FourOhFour";
 
 export const spinnies = new Spinnies();
 
+export const API = express();
+
 (async () => {
   spinnies.add("server-start", { color: "cyan", text: "Starting server..." });
-  const API = express();
 
   spinnies.add("fetch-data", {
     color: "cyan",
