@@ -1,1 +1,84 @@
-<p>landing works!</p>
+<h1>freeCodeCamp Leaderboard</h1>
+<p>
+  This page shows our top 10 contributors on each platform over the last week.
+</p>
+<p>Thank you all for your contributions.</p>
+<p *ngIf="loaded">Data last updated: {{ updated }}</p>
+<div *ngIf="loaded">
+  <section>
+    <h2>Crowdin Contributors</h2>
+      <div class="header-grid-4">
+        <span>Avatar</span>
+        <span>Name</span>
+        <span>Languages Translated</span>
+        <span>Words Translated</span>
+      </div>
+      <div *ngFor="let cont of crowdin" class="contrib-grid-4">
+        <span class="avatar-cont"
+          ><img class="avatar" [src]="cont.avatar"
+        /></span>
+        <span>{{ cont.name }}</span>
+        <span>{{ cont.languages }}</span>
+        <span>{{ cont.translations }}</span>
+      </div>
+  </section>
+  <section>
+    <h2>Forum Contributors</h2>
+    <div class="header-grid-4">
+      <span>Avatar</span>
+      <span>Name</span>
+      <span>Likes Received</span>
+      <span>Likes Given</span>
+    </div>
+    <div *ngFor="let cont of forum" class="contrib-grid-4">
+      <span class="avatar-cont"
+        ><img class="avatar" [src]="cont.avatar"
+      /></span>
+      <span
+        ><a target="_blank" [href]="cont.url"
+          >{{ cont.name }} ({{ cont.username }})</a
+        ></span
+      >
+      <span>{{ cont.likes }}</span>
+      <span>{{ cont.liked }}</span>
+    </div>
+  </section>
+  <section>
+    <h2>GitHub Contributors</h2>
+    <div class="header-grid-3">
+      <span>Avatar</span>
+      <span>Name</span>
+      <span>Commits</span>
+    </div>
+    <div *ngFor="let cont of github" class="contrib-grid-3">
+      <span class="avatar-cont"
+        ><img class="avatar" [src]="cont.avatar"
+      /></span>
+      <span
+        ><a target="_blank" [href]="cont.url"
+          >{{ cont.name }} ({{ cont.username }}</a
+        ></span
+      >
+      <span>{{ cont.commits }}</span>
+    </div>
+  </section>
+  <section>
+    <h2>News Contributors</h2>
+    <div class="header-grid-3">
+      <span>Avatar</span>
+      <span>Name</span>
+      <span>Published Posts</span>
+    </div>
+    <div *ngFor="let cont of news" class="contrib-grid-3">
+      <span class="avatar-cont"
+        ><img class="avatar" [src]="cont.avatar"
+      /></span>
+      <span
+        ><a target="_blank" [href]="cont.url"
+          >{{ cont.name }} ({{ cont.username }})</a
+        ></span
+      >
+      <span>{{ cont.posts }}</span>
+    </div>
+  </section>
+</div>
