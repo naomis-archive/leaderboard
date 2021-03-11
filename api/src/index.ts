@@ -4,6 +4,10 @@ import Spinnies from "spinnies";
 import { sendData } from "./routes/sendData";
 import { FourOhFour } from "./routes/FourOhFour";
 import cors from "cors";
+import { readFile } from "fs/promises";
+import http from "http";
+import https from "https";
+import chalk from "chalk";
 
 export const spinnies = new Spinnies();
 
@@ -44,10 +48,37 @@ export const API = express();
 
   API.use(FourOhFour);
 
-  API.listen(process.env.PORT || 3000, () => {
-    spinnies.succeed("server-start", {
-      color: "magenta",
-      text: `API is live on ${process.env.PORT || 3000}`,
-    });
+  const httpServer = http.createServer(API);
+
+  const httpPort = process.env.NODE_ENV === "production" ? 80 : 8080;
+
+  httpServer.listen(httpPort, () => {
+    console.log(chalk.magenta(`HTTP server running on port ${httpPort}`));
   });
+
+  if (process.env.NODE_ENV === "production") {
+    const privateKey = await readFile(
+      "/etc/letsencrypt/live/leaderboard-api.nhcarrigan.com/privkey.pem",
+      "utf8"
+    );
+    const certificate = await readFile(
+      "/etc/letsencrypt/live/leaderboard-api.nhcarrigan.com/cert.pem",
+      "utf8"
+    );
+    const ca = await readFile(
+      "/etc/letsencrypt/live/leaderboard-api.nhcarrigan.com/chain.pem",
+      "utf8"
+    );
+
+    const credentails = {
+      key: privateKey,
+      cert: certificate,
+      ca: ca,
+    };
+    const httpsServer = https.createServer(credentails, API);
+
+    httpsServer.listen(443, () => {
+      console.log("HTTPS Server running on port 443!");
+    });
+  }
 })();
