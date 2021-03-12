@@ -8,9 +8,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetDataService } from './get-data.service';
 import { CrowdinComponent } from './crowdin/crowdin.component';
 import { NavComponent } from './nav/nav.component';
+import { TopTenComponent } from './top-ten/top-ten.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent, CrowdinComponent, NavComponent],
+  declarations: [AppComponent, LandingComponent, CrowdinComponent, NavComponent, TopTenComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [GetDataService],
   bootstrap: [AppComponent],
