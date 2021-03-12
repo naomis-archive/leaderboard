@@ -7,20 +7,20 @@
 <div *ngIf="loaded">
   <section>
     <h2>Crowdin Contributors</h2>
-      <div class="header-grid-4">
-        <span>Avatar</span>
-        <span>Name</span>
-        <span>Languages Translated</span>
-        <span>Words Translated</span>
-      </div>
-      <div *ngFor="let cont of crowdin" class="contrib-grid-4">
-        <span class="avatar-cont"
-          ><img class="avatar" [src]="cont.avatar"
-        /></span>
-        <span>{{ cont.name }}</span>
-        <span>{{ cont.languages }}</span>
-        <span>{{ cont.translations }}</span>
-      </div>
+    <div class="header-grid-4">
+      <span>Avatar</span>
+      <span>Name</span>
+      <span>Languages Translated</span>
+      <span>Words Translated</span>
+    </div>
+    <div *ngFor="let cont of crowdin" class="contrib-grid-4">
+      <span class="avatar-cont"
+        ><img class="avatar" [src]="cont.avatar"
+      /></span>
+      <span>{{ cont.name }}</span>
+      <span>{{ cont.languages }}</span>
+      <span>{{ cont.translations }}</span>
+    </div>
   </section>
   <section>
     <h2>Forum Contributors</h2>
