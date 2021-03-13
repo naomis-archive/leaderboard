@@ -97,15 +97,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         },
@@ -119,6 +115,15 @@
             "production": {
               "devServerTarget": "client:serve:production"
             }
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://leaderboard.nhcarrigan.com/",
+            "cname": "leaderboard.nhcarrigan.com",
+            "name": "Nicholas Carrigan",
+            "email": "nhcarrigan@gmail.com"
           }
         }
       }

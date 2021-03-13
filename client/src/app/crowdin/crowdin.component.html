@@ -1,0 +1,26 @@
+<h1>Crowdin Contributions</h1>
+<p>
+  These are this week's top contributors for our
+  <a href="https://translate.freecodecamp.org" target="_blank"
+    >Crowdin translation efforts.</a
+  >
+</p>
+<p *ngIf="loaded">Updated on: {{ updated }}</p>
+<div *ngIf="loaded">
+  <section>
+    <div class="header-grid-4">
+      <span>Avatar</span>
+      <span>Name</span>
+      <span>Languages Translated</span>
+      <span>Words Translated</span>
+    </div>
+    <div *ngFor="let cont of crowdin" class="contrib-grid-4">
+      <span class="avatar-cont"
+        ><img class="avatar" [src]="cont.avatar"
+      /></span>
+      <span>{{ cont.name }}</span>
+      <span>{{ cont.languages }}</span>
+      <span>{{ cont.translations }}</span>
+    </div>
+  </section>
+</div>
