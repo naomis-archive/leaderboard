@@ -25,7 +25,7 @@ export interface UserInt {
   id: string;
   username: string;
   fullName: string;
-  avatarURL: string;
+  avatarUrl: string;
 }
 
 export interface LanguageInt {

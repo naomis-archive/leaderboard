@@ -3,7 +3,7 @@ import { sleep } from "../../../helpers/sleep";
 import { ForumDataInt } from "../../../interfaces/forum/ForumDataInt";
 
 export const getForumData = async (): Promise<ForumDataInt> => {
-  let page = 1;
+  let page = 0;
   let rawData = await fetch(
     `https://forum.freecodecamp.org/directory_items.json?order=likes_received&period=weekly&page=${page}`
   );
