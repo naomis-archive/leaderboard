@@ -24,5 +24,7 @@ export const compileForumData = async (
     finalData.push(properData);
   }
 
-  return finalData.filter((user) => user.likes > 0);
+  return finalData
+    .filter((user) => user.likes > 0)
+    .sort((a, b) => b.likes - a.likes);
 };
