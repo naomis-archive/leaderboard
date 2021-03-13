@@ -3,8 +3,19 @@ body {
   background-color: #0a0a23;
   color: #ffffff;
   padding-bottom: 100px;
+  font-family: Roboto;
 }
 
 a {
   color: #ffffff;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("./assets/fonts/RobotoMono-Regular.woff");
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("./assets/fonts/Lato-Regular.woff");
 }
