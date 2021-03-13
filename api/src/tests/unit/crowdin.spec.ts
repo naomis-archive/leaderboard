@@ -19,7 +19,7 @@ const mockFinalReport: FinalReportInt[] = [
           id: "12",
           username: "nhcarrigan",
           fullName: "Nicholas Carrigan (nhcarrigan)",
-          avatarURL: "https://localhost:8000/avatar",
+          avatarUrl: "https://localhost:8000/avatar",
         },
         languages: [
           {
