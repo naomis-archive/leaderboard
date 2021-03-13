@@ -10,6 +10,7 @@ export class ForumComponent implements OnInit {
   public data: any;
   public forum: any;
   public loaded = false;
+  public updated: any;
 
   constructor(private GetDataService: GetDataService) {}
 
@@ -17,6 +18,11 @@ export class ForumComponent implements OnInit {
     this.GetDataService.getData().subscribe((data) => {
       this.data = data;
       this.forum = data.forum;
+      this.updated =
+        new Date(data.updated_on).toLocaleDateString() +
+        ' ' +
+        new Date(data.updated_on).toLocaleTimeString();
+
       this.loaded = true;
     });
   }
