@@ -1,0 +1,39 @@
+* {
+  text-align: center;
+}
+
+.avatar {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.contrib-grid-3 > *,
+.header-grid-3 > * {
+  height: 100%;
+  width: 100%;
+  border-left: 2px solid white;
+}
+
+.header-grid-3,
+.contrib-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  height: 50px;
+  border: 2px solid #ffffff;
+  max-width: 750px;
+  margin: auto;
+}
+
+.header-grid-3 {
+  background-color: #3b3b4f;
+}
+
+.contrib-grid-3 {
+  background-color: #1b1b32;
+}
+
+.contrib-grid-3:nth-child(odd) {
+  background-color: #2a2a40;
+}
