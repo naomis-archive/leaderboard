@@ -1,0 +1,23 @@
+<h1>Forum Contributions</h1>
+<p>
+  These are this week's top contributors for our forum.
+</p>
+<p *ngIf="loaded">Updated on: {{ data.updated_on }}</p>
+<div *ngIf="loaded">
+  <section>
+    <div class="header-grid-4">
+      <span>Avatar</span>
+      <span>Name (username)</span>
+      <span>Likes Received</span>
+      <span>Likes Given</span>
+    </div>
+    <div *ngFor="let cont of forum" class="contrib-grid-4">
+      <span class="avatar-cont"
+        ><img class="avatar" [src]="cont.avatar"
+      /></span>
+      <span>{{ cont.name }}</span>
+      <span>{{ cont.likes }}</span>
+      <span>{{ cont.liked }}</span>
+    </div>
+  </section>
+</div>
