@@ -14,9 +14,9 @@
     </div>
     <div *ngFor="let cont of forum" class="contrib-grid-4">
       <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar"
+        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
-      <span>{{ cont.name }}</span>
+      <span>{{ cont.name }} ({{ cont.username }})</span>
       <span>{{ cont.likes }}</span>
       <span>{{ cont.liked }}</span>
     </div>

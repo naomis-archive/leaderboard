@@ -31,4 +31,7 @@ export class TopTenComponent implements OnInit {
       this.loaded = true;
     });
   }
+  onImgError(event: any) {
+    event.target.src = '../assets/img/default-avatar.png';
+  }
 }

@@ -15,7 +15,7 @@
     </div>
     <div *ngFor="let cont of crowdin" class="contrib-grid-4">
       <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar"
+        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
       <span>{{ cont.name }}</span>
       <span>{{ cont.languages }}</span>
@@ -32,7 +32,7 @@
     </div>
     <div *ngFor="let cont of forum" class="contrib-grid-4">
       <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar"
+        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
       <span
         ><a target="_blank" [href]="cont.url"
@@ -52,7 +52,7 @@
     </div>
     <div *ngFor="let cont of github" class="contrib-grid-3">
       <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar"
+        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
       <span
         ><a target="_blank" [href]="cont.url"
@@ -71,7 +71,7 @@
     </div>
     <div *ngFor="let cont of news" class="contrib-grid-3">
       <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar"
+        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
       <span
         ><a target="_blank" [href]="cont.url"

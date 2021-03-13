@@ -16,7 +16,7 @@
     </div>
     <div *ngFor="let cont of crowdin" class="contrib-grid-4">
       <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar"
+        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
       <span>{{ cont.name }}</span>
       <span>{{ cont.languages }}</span>

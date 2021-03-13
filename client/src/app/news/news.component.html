@@ -15,7 +15,7 @@
     </div>
     <div *ngFor="let cont of news" class="contrib-grid-3">
       <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar"
+        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
       <span
         ><a target="_blank" [href]="cont.url"
