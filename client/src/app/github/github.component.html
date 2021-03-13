@@ -1,0 +1,25 @@
+<h1>GitHub Contributions</h1>
+<p>
+  These are this week's top contributors for our primary GitHub repository.
+</p>
+<p *ngIf="loaded">Updated on: {{ data.updated_on }}</p>
+<div *ngIf="loaded">
+  <section>
+    <div class="header-grid-3">
+      <span>Avatar</span>
+      <span>Name</span>
+      <span>Commits</span>
+    </div>
+    <div *ngFor="let cont of github" class="contrib-grid-3">
+      <span class="avatar-cont"
+        ><img class="avatar" [src]="cont.avatar"
+      /></span>
+      <span
+        ><a target="_blank" [href]="cont.url"
+          >{{ cont.name }} ({{ cont.username }}</a
+        ></span
+      >
+      <span>{{ cont.commits }}</span>
+    </div>
+  </section>
+</div>
