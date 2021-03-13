@@ -15,7 +15,17 @@ import { GithubComponent } from './github/github.component';
 import { NewsComponent } from './news/news.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent, CrowdinComponent, NavComponent, TopTenComponent, FooterComponent, ForumComponent, GithubComponent, NewsComponent],
+  declarations: [
+    AppComponent,
+    LandingComponent,
+    CrowdinComponent,
+    NavComponent,
+    TopTenComponent,
+    FooterComponent,
+    ForumComponent,
+    GithubComponent,
+    NewsComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [GetDataService],
   bootstrap: [AppComponent],

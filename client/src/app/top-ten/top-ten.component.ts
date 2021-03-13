@@ -8,16 +8,16 @@ import { GetDataService } from '../get-data.service';
 })
 export class TopTenComponent implements OnInit {
   public data: any;
-  public loaded: boolean = false;
+  public loaded = false;
   public updated: any;
   public crowdin: any;
   public forum: any;
   public github: any;
   public news: any;
-  constructor(private GetDataService: GetDataService) {}
+  constructor(private getDataService: GetDataService) {}
 
   ngOnInit(): void {
-    this.GetDataService.getData().subscribe((data) => {
+    this.getDataService.getData().subscribe((data) => {
       this.data = data;
       this.updated =
         new Date(data.updated_on).toLocaleDateString() +

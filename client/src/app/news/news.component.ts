@@ -12,10 +12,10 @@ export class NewsComponent implements OnInit {
   public loaded = false;
   public updated: any;
 
-  constructor(private GetDataService: GetDataService) {}
+  constructor(private getDataService: GetDataService) {}
 
   ngOnInit(): void {
-    this.GetDataService.getData().subscribe((data) => {
+    this.getDataService.getData().subscribe((data) => {
       this.data = data;
       this.news = data.news;
       this.updated =
