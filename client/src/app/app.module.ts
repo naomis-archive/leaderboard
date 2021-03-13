@@ -9,9 +9,10 @@ import { GetDataService } from './get-data.service';
 import { CrowdinComponent } from './crowdin/crowdin.component';
 import { NavComponent } from './nav/nav.component';
 import { TopTenComponent } from './top-ten/top-ten.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent, CrowdinComponent, NavComponent, TopTenComponent],
+  declarations: [AppComponent, LandingComponent, CrowdinComponent, NavComponent, TopTenComponent, FooterComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [GetDataService],
   bootstrap: [AppComponent],
