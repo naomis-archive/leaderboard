@@ -45,7 +45,7 @@ const mockGithubData: RawCommitInt[] = [
     comments_url:
       "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d/comments",
     author: {
-      login: "nhcarrigan",
+      login: "nhcarrigantest",
       id: 63889819,
       node_id: "MDQ6VXNlcjYzODg5ODE5",
       avatar_url: "https://avatars.githubusercontent.com/u/63889819?v=4",
@@ -112,7 +112,7 @@ const mockGithubData: RawCommitInt[] = [
 
 const expectedResult: GithubContribInt[] = [
   {
-    username: "nhcarrigan",
+    username: "nhcarrigantest",
     name: "Nicholas Carrigan (he/him)",
     commits: 1,
     avatar: "https://avatars.githubusercontent.com/u/63889819?v=4",

@@ -15,7 +15,7 @@ const mockForumData: ForumDataInt = {
       days_visited: 3,
       user: {
         id: 1222,
-        username: "nhcarrigan",
+        username: "nhcarrigantest",
         name: "Nicholas Carrigan",
         avatar_template:
           "/user_avatar/forum.freecodecamp.org/nhcarrigan/{size}/185808_2.png",
@@ -32,13 +32,13 @@ const mockForumData: ForumDataInt = {
 
 const mockResult: ForumContribInt[] = [
   {
-    username: "nhcarrigan",
+    username: "nhcarrigantest",
     name: "Nicholas Carrigan",
     likes: 100,
     liked: 1000,
     avatar:
       "https://sjc1.discourse-cdn.com/freecodecamp/user_avatar/forum.freecodecamp.org/nhcarrigan/240/185808_2.png",
-    url: "https://forum.freecodecamp.org/u/nhcarrigan",
+    url: "https://forum.freecodecamp.org/u/nhcarrigantest",
   },
 ];
 

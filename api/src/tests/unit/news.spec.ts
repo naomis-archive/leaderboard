@@ -26,7 +26,7 @@ const mockNewsData = [
       {
         id: "5fd3a6dfe6787e098393da09",
         name: "Nicholas Carrigan",
-        slug: "nhcarrigan",
+        slug: "nhcarrigantest",
         profile_image:
           "https://www.freecodecamp.org/news/content/images/2020/12/profile.jpg",
         cover_image: null,
@@ -43,7 +43,7 @@ const mockNewsData = [
     primary_author: {
       id: "5fd3a6dfe6787e098393da09",
       name: "Nicholas Carrigan",
-      slug: "nhcarrigan",
+      slug: "nhcarrigantest",
       profile_image:
         "https://www.freecodecamp.org/news/content/images/2020/12/profile.jpg",
       cover_image: null,
@@ -75,7 +75,7 @@ const mockNewsData = [
 const expectedResult: NewsContribInt[] = [
   {
     name: "Nicholas Carrigan",
-    username: "nhcarrigan",
+    username: "nhcarrigantest",
     url: "https://www.freecodecamp.org/news/author/nhcarrigan/",
     avatar:
       "https://www.freecodecamp.org/news/content/images/2020/12/profile.jpg",
