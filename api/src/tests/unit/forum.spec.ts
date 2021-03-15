@@ -15,6 +15,23 @@ const mockForumData: ForumDataInt = {
       days_visited: 3,
       user: {
         id: 1222,
+        username: "nhcarrigantest",
+        name: "Nicholas Carrigan",
+        avatar_template:
+          "/user_avatar/forum.freecodecamp.org/nhcarrigan/{size}/185808_2.png",
+        title: "Open sourcerer",
+      },
+    },
+    {
+      id: 12,
+      likes_received: 100,
+      likes_given: 1000,
+      topics_entered: 3,
+      post_count: 3,
+      posts_read: 3,
+      days_visited: 3,
+      user: {
+        id: 1222,
         username: "nhcarrigan",
         name: "Nicholas Carrigan",
         avatar_template:
@@ -32,13 +49,13 @@ const mockForumData: ForumDataInt = {
 
 const mockResult: ForumContribInt[] = [
   {
-    username: "nhcarrigan",
+    username: "nhcarrigantest",
     name: "Nicholas Carrigan",
     likes: 100,
     liked: 1000,
     avatar:
       "https://sjc1.discourse-cdn.com/freecodecamp/user_avatar/forum.freecodecamp.org/nhcarrigan/240/185808_2.png",
-    url: "https://forum.freecodecamp.org/u/nhcarrigan",
+    url: "https://forum.freecodecamp.org/u/nhcarrigantest",
   },
 ];
 
@@ -50,5 +67,11 @@ suite("Forum modules", () => {
       mockResult[0],
       "did not parse forum data correctly"
     );
+  });
+
+  test("should filter out staff data", async () => {
+    const result = await compileForumData(mockForumData);
+    const staff = result.find((el) => el.username === "nhcarrigan");
+    assert.isUndefined(staff, "did not filter out staff data");
   });
 });

@@ -1,0 +1,62 @@
+export const crowdinStaffList = [
+  "scissorsneedfoodtoo",
+  "ahmad",
+  "freeCodeCamp",
+  "raisedadead",
+  "nhcarrigan",
+  "oliver",
+  "quincy",
+  "rafa",
+  "rdawson",
+  "moT",
+  "Liu",
+  "miyaliu",
+  "RafaelDavisH",
+  "camperbot",
+];
+
+export const forumStaffList = [
+  "nhcarrigan",
+  "RandellDawson",
+  "raisedadead",
+  "moT01",
+  "abdolsa",
+  "scissorsneedfoodtoo",
+  "QuincyLarson",
+  "ojeytonwilliams",
+  "freeCodeCamp",
+  "camperbot",
+  "abbey",
+  "beaucarnes",
+  "miyaliu",
+  "RafaelHernandez",
+];
+
+export const githubStaffList = [
+  "QuincyLarson",
+  "beaucarnes",
+  "raisedadead",
+  "scissorsneedfoodtoo",
+  "ahmadabdolsaheb",
+  "RandellDawson",
+  "RafaelDavisH",
+  "ojeytonwilliams",
+  "miyaliu666",
+  "moT01",
+  "nhcarrigan",
+  "camperbot",
+];
+
+export const newsStaffList = [
+  "abbey",
+  "beau",
+  "freecodecamp",
+  "kris",
+  "mrugesh",
+  "nhcarrigan",
+  "oliver",
+  "quincylarson",
+  "rafaeldavish",
+  "randell",
+  "tom-m",
+];

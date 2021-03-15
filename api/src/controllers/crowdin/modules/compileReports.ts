@@ -1,5 +1,6 @@
 import { FinalReportInt } from "../../../interfaces/crowdin/FinalReportInt";
 import { CrowdinContribsInt } from "../../../interfaces/crowdin/CrowdinContribsInt";
+import { crowdinStaffList } from "../../../config/staffList";
 
 export const compileReports = (
   reportList: FinalReportInt[]
@@ -9,6 +10,9 @@ export const compileReports = (
   for (const report of reportList) {
     const contribs = report.data;
     for (const contributor of contribs) {
+      if (crowdinStaffList.includes(contributor.user.username)) {
+        continue;
+      }
       const name = contributor.user.fullName;
       const languages = contributor.languages.map((lang) => lang.name);
       const translations = contributor.translated;

@@ -1,3 +1,4 @@
+import { forumStaffList } from "../../../config/staffList";
 import { ForumContribInt } from "../../../interfaces/forum/ForumContribInt";
 import { ForumDataInt } from "../../../interfaces/forum/ForumDataInt";
 
@@ -9,6 +10,9 @@ export const compileForumData = async (
   const userList = data.directory_items;
 
   for (const user of userList) {
+    if (forumStaffList.includes(user.user.username)) {
+      continue;
+    }
     const parsedAvatarString =
       "https://sjc1.discourse-cdn.com/freecodecamp" +
       user.user.avatar_template.replace("{size}", "240");

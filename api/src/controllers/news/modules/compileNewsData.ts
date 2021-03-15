@@ -1,4 +1,5 @@
 import { PostsOrPages } from "@tryghost/content-api";
+import { newsStaffList } from "../../../config/staffList";
 import { NewsContribInt } from "../../../interfaces/news/NewsContribInt";
 
 export const compileNewsData = async (
@@ -8,6 +9,9 @@ export const compileNewsData = async (
 
   for (const post of data) {
     if (!post.primary_author || !post.primary_author.name) {
+      continue;
+    }
+    if (newsStaffList.includes(post.primary_author?.slug)) {
       continue;
     }
     const name = post.primary_author.name;
