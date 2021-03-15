@@ -1,3 +1,4 @@
+import { githubStaffList } from "../../../config/staffList";
 import { GithubContribInt } from "../../../interfaces/github/GithubContribInt";
 import { RawCommitInt } from "../../../interfaces/github/RawCommitInt";
 
@@ -7,6 +8,9 @@ export const compileCommits = async (
   const totals: GithubContribInt[] = [];
 
   for (const commit of commits) {
+    if (githubStaffList.includes(commit.author.login)) {
+      continue;
+    }
     const exists = totals.find((el) => el.username === commit.author.login);
 
     if (exists) {
