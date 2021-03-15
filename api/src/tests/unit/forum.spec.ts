@@ -22,6 +22,23 @@ const mockForumData: ForumDataInt = {
         title: "Open sourcerer",
       },
     },
+    {
+      id: 12,
+      likes_received: 100,
+      likes_given: 1000,
+      topics_entered: 3,
+      post_count: 3,
+      posts_read: 3,
+      days_visited: 3,
+      user: {
+        id: 1222,
+        username: "nhcarrigan",
+        name: "Nicholas Carrigan",
+        avatar_template:
+          "/user_avatar/forum.freecodecamp.org/nhcarrigan/{size}/185808_2.png",
+        title: "Open sourcerer",
+      },
+    },
   ],
   meta: {
     last_updated_at: "Right Meow",
@@ -50,5 +67,11 @@ suite("Forum modules", () => {
       mockResult[0],
       "did not parse forum data correctly"
     );
+  });
+
+  test("should filter out staff data", async () => {
+    const result = await compileForumData(mockForumData);
+    const staff = result.find((el) => el.username === "nhcarrigan");
+    assert.isUndefined(staff, "did not filter out staff data");
   });
 });

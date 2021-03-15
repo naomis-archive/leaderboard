@@ -34,6 +34,26 @@ const mockFinalReport: FinalReportInt[] = [
         negativeVotes: 1,
         winning: 3,
       },
+      {
+        user: {
+          id: "12",
+          username: "nhcarrigan",
+          fullName: "I am staff",
+          avatarUrl: "https://localhost:8000/avatar",
+        },
+        languages: [
+          {
+            id: "1",
+            name: "TypeScript",
+          },
+        ],
+        translated: 4000,
+        approved: 1000,
+        voted: 5000,
+        positiveVotes: 4999,
+        negativeVotes: 1,
+        winning: 3,
+      },
     ],
   },
 ];
@@ -55,5 +75,11 @@ suite("Crowdin modules", () => {
       expectedResult[0],
       "did not parse data correctly."
     );
+  });
+
+  test("Should filter out staff", async () => {
+    const result = compileReports(mockFinalReport);
+    const staff = result.find((el) => el.name === "I am staff");
+    assert.isUndefined(staff, "did not filter out staff data");
   });
 });
