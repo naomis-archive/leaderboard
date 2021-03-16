@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GithubComponent } from './github.component';
@@ -8,9 +9,9 @@ describe('GithubComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GithubComponent ]
-    })
-    .compileComponents();
+      declarations: [GithubComponent],
+      imports: [HttpClientModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CrowdinComponent } from './crowdin.component';
@@ -8,9 +9,9 @@ describe('CrowdinComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrowdinComponent ]
-    })
-    .compileComponents();
+      declarations: [CrowdinComponent],
+      imports: [HttpClientModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

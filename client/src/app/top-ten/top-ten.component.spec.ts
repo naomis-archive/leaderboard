@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TopTenComponent } from './top-ten.component';
@@ -8,9 +9,9 @@ describe('TopTenComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopTenComponent ]
-    })
-    .compileComponents();
+      declarations: [TopTenComponent],
+      imports: [HttpClientModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
