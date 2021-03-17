@@ -1,5 +1,4 @@
 import { HttpClientModule } from '@angular/common/http';
-import { ɵSWITCH_ELEMENT_REF_FACTORY__POST_R3__ } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { testData } from 'src/data/testData';
 
@@ -68,6 +67,13 @@ describe('CrowdinComponent', () => {
     expect(contrib.getAttribute('href')).toEqual(
       'https://contribute.freecodecamp.org/#/how-to-translate-files',
       'does not have correct docs link'
+    );
+  });
+
+  it('should render the updated-on timestamp', () => {
+    const text = compiled.querySelectorAll('p')[2];
+    expect(text.textContent.trim()).toEqual(
+      `Updated on: ${testData.updated_on}`
     );
   });
 

@@ -71,6 +71,13 @@ describe('NewsComponent', () => {
     );
   });
 
+  it('should render the updated-on timestamp', () => {
+    const text = compiled.querySelectorAll('p')[2];
+    expect(text.textContent.trim()).toEqual(
+      `Updated on: ${testData.updated_on}`
+    );
+  });
+
   it('should render the expected table', () => {
     const tableHeader = compiled.querySelectorAll('.header-grid-3');
     const tableRows = compiled.querySelectorAll('.contrib-grid-3');
