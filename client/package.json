@@ -1,6 +1,11 @@
 {
-  "name": "client",
-  "version": "0.0.0",
+  "name": "leaderboard-client",
+  "version": "1.0.0",
+  "description": "The client for the leaderboard app",
+  "engines": {
+    "node": "^15.11.0",
+    "npm": "^7.6.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +15,20 @@
     "e2e": "ng e2e",
     "deploy": "ng deploy"
   },
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhcarrigan/leaderboard.git"
+  },
+  "keywords": [
+    "typescript",
+    "angular"
+  ],
+  "author": "Nicholas Carrigan",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/nhcarrigan/leaderboard/issues"
+  },
+  "homepage": "https://github.com/nhcarrigan/leaderboard#readme",
   "dependencies": {
     "@angular/animations": "~11.0.1",
     "@angular/common": "~11.0.1",
