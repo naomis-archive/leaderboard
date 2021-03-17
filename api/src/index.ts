@@ -50,7 +50,8 @@ export const API = express();
 
   const httpServer = http.createServer(API);
 
-  const httpPort = process.env.NODE_ENV === "production" ? 80 : 8080;
+  const httpPort =
+    process.env.NODE_ENV === "production" ? 80 : process.env.PORT || 8080;
 
   httpServer.listen(httpPort, () => {
     console.log(chalk.magenta(`HTTP server running on port ${httpPort}`));

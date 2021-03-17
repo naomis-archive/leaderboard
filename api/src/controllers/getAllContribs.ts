@@ -14,7 +14,7 @@ import { getNewsContribs } from "./news/getNewsContribs";
 
 export const getAllContribs = async (): Promise<ContribDataInt> => {
   // Generate test data in development environment
-  if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+  if (!process.env.USE_LIVE_DATA || process.env.USE_LIVE_DATA !== "true") {
     console.log(chalk.cyan("Development mode detected. Loading test data."));
     const testContribData: ContribDataInt = {
       crowdin: testCrowdinData,
