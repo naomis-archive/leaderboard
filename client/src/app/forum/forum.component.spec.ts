@@ -50,6 +50,26 @@ describe('ForumComponent', () => {
     );
   });
 
+  it('should render the expected description links', () => {
+    const [platform, contrib] = compiled.querySelectorAll('a');
+    expect(platform.textContent.trim()).toEqual(
+      'forum',
+      'does not have correct platform link text'
+    );
+    expect(platform.getAttribute('href')).toEqual(
+      'https://forum.freecodecamp.org',
+      'does not have correct platform link'
+    );
+    expect(contrib.textContent.trim()).toEqual(
+      'forum guidelines',
+      'does not have correct docs link text'
+    );
+    expect(contrib.getAttribute('href')).toEqual(
+      'https://forum.freecodecamp.org/guidelines',
+      'does not have correct docs link'
+    );
+  });
+
   it('should render the expected table', () => {
     const tableHeader = compiled.querySelectorAll('.header-grid-4');
     const tableRows = compiled.querySelectorAll('.contrib-grid-4');

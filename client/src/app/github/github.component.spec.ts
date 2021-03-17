@@ -50,6 +50,26 @@ describe('GithubComponent', () => {
     );
   });
 
+  it('should render the expected description links', () => {
+    const [platform, contrib] = compiled.querySelectorAll('a');
+    expect(platform.textContent.trim()).toEqual(
+      'primary GitHub repository',
+      'does not have correct platform link text'
+    );
+    expect(platform.getAttribute('href')).toEqual(
+      'https://github.com/freeCodeCamp/freeCodeCamp',
+      'does not have correct platform link'
+    );
+    expect(contrib.textContent.trim()).toEqual(
+      'contributing guidelines',
+      'does not have correct docs link text'
+    );
+    expect(contrib.getAttribute('href')).toEqual(
+      'https://contribute.freecodecamp.org/#/how-to-setup-freecodecamp-locally',
+      'does not have correct docs link'
+    );
+  });
+
   it('should render the expected table', () => {
     const tableHeader = compiled.querySelectorAll('.header-grid-3');
     const tableRows = compiled.querySelectorAll('.contrib-grid-3');

@@ -51,6 +51,26 @@ describe('CrowdinComponent', () => {
     );
   });
 
+  it('should render the expected description links', () => {
+    const [platform, contrib] = compiled.querySelectorAll('a');
+    expect(platform.textContent.trim()).toEqual(
+      'Crowdin translation efforts',
+      'does not have correct platform link text'
+    );
+    expect(platform.getAttribute('href')).toEqual(
+      'https://translate.freecodecamp.org',
+      'does not have correct platform link'
+    );
+    expect(contrib.textContent.trim()).toEqual(
+      'translation documentation',
+      'does not have correct docs link text'
+    );
+    expect(contrib.getAttribute('href')).toEqual(
+      'https://contribute.freecodecamp.org/#/how-to-translate-files',
+      'does not have correct docs link'
+    );
+  });
+
   it('should render the expected table', () => {
     const tableHeader = compiled.querySelectorAll('.header-grid-4');
     const tableRows = compiled.querySelectorAll('.contrib-grid-4');

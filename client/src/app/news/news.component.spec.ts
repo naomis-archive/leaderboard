@@ -51,6 +51,26 @@ describe('NewsComponent', () => {
     );
   });
 
+  it('should render the expected description links', () => {
+    const [platform, contrib] = compiled.querySelectorAll('a');
+    expect(platform.textContent.trim()).toEqual(
+      'News publication',
+      'does not have correct platform link text'
+    );
+    expect(platform.getAttribute('href')).toEqual(
+      'https://www.freecodecamp.org/news',
+      'does not have correct platform link'
+    );
+    expect(contrib.textContent.trim()).toEqual(
+      'publication style guide',
+      'does not have correct docs link text'
+    );
+    expect(contrib.getAttribute('href')).toEqual(
+      'https://www.freecodecamp.org/news/developer-news-style-guide/',
+      'does not have correct docs link'
+    );
+  });
+
   it('should render the expected table', () => {
     const tableHeader = compiled.querySelectorAll('.header-grid-3');
     const tableRows = compiled.querySelectorAll('.contrib-grid-3');
