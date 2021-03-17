@@ -1,6 +1,6 @@
 <h1>freeCodeCamp Leaderboard</h1>
 <p>
-  This page shows our top 10 contributors on each platform over the last week.
+  This page shows our top ten contributors on each platform over the last week.
 </p>
 <p>Thank you all for your contributions.</p>
 <p *ngIf="loaded">Data last updated: {{ updated }}</p>
@@ -26,7 +26,7 @@
     <h2>Forum Contributors</h2>
     <div class="header-grid-4">
       <span>Avatar</span>
-      <span>Name</span>
+      <span>Name (username)</span>
       <span>Likes Received</span>
       <span>Likes Given</span>
     </div>
@@ -47,7 +47,7 @@
     <h2>GitHub Contributors</h2>
     <div class="header-grid-3">
       <span>Avatar</span>
-      <span>Name</span>
+      <span>Name (username)</span>
       <span>Commits</span>
     </div>
     <div *ngFor="let cont of github" class="contrib-grid-3">
@@ -66,7 +66,7 @@
     <h2>News Contributors</h2>
     <div class="header-grid-3">
       <span>Avatar</span>
-      <span>Name</span>
+      <span>Name (username)</span>
       <span>Published Posts</span>
     </div>
     <div *ngFor="let cont of news" class="contrib-grid-3">
