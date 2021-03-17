@@ -1,11 +1,16 @@
-# Project Name
+# Leaderboard
 
-Project Description
+This is a prototype for a freeCodeCamp leaderboard application. The idea is to be able to track global contributions to our community across multiple platforms.
+
+This project is still a work in progress, and is subject to change, deprecation, or archival at any time.
+
+This project is not yet an official freeCodeCamp application.
+
+The client is built with Angular and TypeScript, and the API is built with TypeScript and Express.
 
 ## Live Version
 
-This page is not yet deployed.
-<!--This page is currently deployed. [View the live website.]()-->
+This page is currently deployed. [View the live website.](https://leaderboard.nhcarrigan.com)
 
 ## Feedback and Bugs
 
