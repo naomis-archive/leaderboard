@@ -4,7 +4,7 @@
   <a href="https://forum.freecodecamp.org" target="_blank">forum.</a>
 </p>
 <p>
-  If you are interested in participating in discussions on our fourm, we
+  If you are interested in participating in discussions on our forum, we
   recommend starting with the
   <a href="https://forum.freecodecamp.org/guidelines" target="_blank"
     >forum guidelines</a
@@ -23,7 +23,11 @@
       <span class="avatar-cont"
         ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
-      <span>{{ cont.name }} ({{ cont.username }})</span>
+      <span
+        ><a href="{{ cont.url }}"
+          >{{ cont.name }} ({{ cont.username }})</a
+        ></span
+      >
       <span>{{ cont.likes }}</span>
       <span>{{ cont.liked }}</span>
     </div>
