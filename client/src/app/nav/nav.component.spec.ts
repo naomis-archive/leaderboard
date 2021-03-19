@@ -28,6 +28,11 @@ const navLinks = [
     link: 'news',
     index: 5,
   },
+  {
+    name: 'My Profile',
+    link: 'profile',
+    index: 6
+  }
 ];
 
 describe('NavComponent', () => {
@@ -58,10 +63,9 @@ describe('NavComponent', () => {
     expect(linkItems.length).toEqual(6, 'does not have 6 link items');
   });
 
-  it('should have six navigation links, including the logo', () => {
-    // NOTE: Update this when the final link is in place
+  it('should have seven navigation links, including the logo', () => {
     const links = compiled.querySelectorAll('a');
-    expect(links.length).toEqual(6, 'does not render six links');
+    expect(links.length).toEqual(7, 'does not render seven links');
   });
 
   it('should have link to freeCodeCamp', () => {
