@@ -14,6 +14,7 @@ import { ForumComponent } from './forum/forum.component';
 import { GithubComponent } from './github/github.component';
 import { NewsComponent } from './news/news.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,13 @@ import { ProfileComponent } from './profile/profile.component';
     NewsComponent,
     ProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
   providers: [GetDataService],
   bootstrap: [AppComponent],
 })

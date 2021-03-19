@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../get-data.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
   public data: any;
@@ -14,7 +15,23 @@ export class ProfileComponent implements OnInit {
   public forum: any;
   public github: any;
   public news: any;
-  constructor(private getDataService: GetDataService) {}
+  public userForm = this.formBuilder.group({
+    crowdin: '',
+    forum: '',
+    github: '',
+    news: '',
+  });
+
+  public userResult = {
+    crowdin: {},
+    forum: {},
+    github: {},
+    news: {},
+  };
+  constructor(
+    private getDataService: GetDataService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.getDataService.getData().subscribe((data) => {
@@ -29,5 +46,9 @@ export class ProfileComponent implements OnInit {
       this.news = data.news.slice(0, 10);
       this.loaded = true;
     });
+  }
+
+  onSubmit(): void {
+    console.log(this.userForm.value);
   }
 }

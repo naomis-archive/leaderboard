@@ -3,22 +3,22 @@
   Fill out the form below with your user name for each platform to see a list of
   this week's contributions.
 </p>
-<form *ngIf="loaded">
+<form *ngIf="loaded" [formGroup]="userForm" (ngSubmit)="onSubmit()">
   <label
     >Crowdin Username:
-    <input type="text" name="crowdin" />
+    <input type="text" formControlName="crowdin" />
   </label>
   <label
     >Forum Username:
-    <input type="text" name="forum" />
+    <input type="text" formControlName="forum" />
   </label>
   <label
     >GitHub Username:
-    <input type="text" name="github" />
+    <input type="text" formControlName="github" />
   </label>
   <label
     >News Username:
-    <input type="text" name="news" />
+    <input type="text" formControlName="news" />
   </label>
   <button type="submit">Get My Data!</button>
 </form>
