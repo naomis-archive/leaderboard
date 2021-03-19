@@ -3,7 +3,7 @@
   Fill out the form below with your user name for each platform to see a list of
   this week's contributions.
 </p>
-<form>
+<form *ngIf="loaded">
   <label
     >Crowdin Username:
     <input type="text" name="crowdin" />
