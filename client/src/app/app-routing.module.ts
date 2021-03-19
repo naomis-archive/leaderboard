@@ -5,6 +5,7 @@ import { ForumComponent } from './forum/forum.component';
 import { GithubComponent } from './github/github.component';
 import { LandingComponent } from './landing/landing.component';
 import { NewsComponent } from './news/news.component';
+import { ProfileComponent } from './profile/profile.component';
 import { TopTenComponent } from './top-ten/top-ten.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'forum', component: ForumComponent },
   { path: 'github', component: GithubComponent },
   { path: 'news', component: NewsComponent },
+  { path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({

@@ -24,7 +24,6 @@ export class TopTenComponent implements OnInit {
         ' ' +
         new Date(data.updated_on).toLocaleTimeString();
       this.crowdin = data.crowdin.slice(0, 10);
-      console.log(this.crowdin);
       this.forum = data.forum.slice(0, 10);
       this.github = data.github.slice(0, 10);
       this.news = data.news.slice(0, 10);

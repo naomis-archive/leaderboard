@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ForumComponent } from './forum/forum.component';
 import { GithubComponent } from './github/github.component';
 import { NewsComponent } from './news/news.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NewsComponent } from './news/news.component';
     ForumComponent,
     GithubComponent,
     NewsComponent,
+    ProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [GetDataService],
