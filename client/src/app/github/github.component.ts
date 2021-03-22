@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubDataInt, GlobalDataInt } from 'src/interfaces/GlobalDataInt';
 import { GetDataService } from '../get-data.service';
 
 @Component({
@@ -7,10 +8,10 @@ import { GetDataService } from '../get-data.service';
   styleUrls: ['./github.component.css'],
 })
 export class GithubComponent implements OnInit {
-  public data: any;
-  public github: any;
+  public data: GlobalDataInt | undefined;
+  public github: GithubDataInt[] | undefined;
   public loaded = false;
-  public updated: any;
+  public updated: string | undefined;
 
   constructor(private getDataService: GetDataService) {}
 

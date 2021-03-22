@@ -1,3 +1,5 @@
+import { GlobalDataInt } from 'src/interfaces/GlobalDataInt';
+
 /* eslint-disable @typescript-eslint/naming-convention */
 const testCrowdinData = [
   {
@@ -42,7 +44,7 @@ const testNewsData = [
   },
 ];
 
-export const testData = {
+export const testData: GlobalDataInt = {
   crowdin: testCrowdinData,
   forum: testForumData,
   github: testGithubData,

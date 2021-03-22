@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../get-data.service';
 import { FormBuilder } from '@angular/forms';
+import { CrowdinDataInt, ForumDataInt, GithubDataInt, GlobalDataInt, NewsDataInt } from 'src/interfaces/GlobalDataInt';
 
 @Component({
   selector: 'app-profile',
@@ -8,13 +9,13 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  public data: any;
+  public data: GlobalDataInt | undefined;
   public loaded = false;
-  public updated: any;
-  public crowdin: any;
-  public forum: any;
-  public github: any;
-  public news: any;
+  public updated: string | undefined;
+  public crowdin: CrowdinDataInt[] | undefined;
+  public forum: ForumDataInt[] | undefined;
+  public github: GithubDataInt[] | undefined;
+  public news: NewsDataInt[] | undefined;
   public userForm = this.formBuilder.group({
     crowdin: '',
     forum: '',
@@ -23,10 +24,10 @@ export class ProfileComponent implements OnInit {
   });
 
   public userResult = {
-    crowdin: {},
-    forum: {},
-    github: {},
-    news: {},
+    crowdin: '',
+    forum: '',
+    github: '',
+    news: '',
   };
   constructor(
     private getDataService: GetDataService,

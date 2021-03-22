@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CrowdinDataInt, ForumDataInt, GithubDataInt, GlobalDataInt, NewsDataInt } from 'src/interfaces/GlobalDataInt';
 import { GetDataService } from '../get-data.service';
 
 @Component({
@@ -7,13 +8,13 @@ import { GetDataService } from '../get-data.service';
   styleUrls: ['./top-ten.component.css'],
 })
 export class TopTenComponent implements OnInit {
-  public data: any;
+  public data: GlobalDataInt | undefined;
   public loaded = false;
-  public updated: any;
-  public crowdin: any;
-  public forum: any;
-  public github: any;
-  public news: any;
+  public updated: string | undefined;
+  public crowdin: CrowdinDataInt[] | undefined;
+  public forum: ForumDataInt[] | undefined;
+  public github: GithubDataInt[] | undefined;
+  public news: NewsDataInt[] | undefined;
   constructor(private getDataService: GetDataService) {}
 
   ngOnInit(): void {

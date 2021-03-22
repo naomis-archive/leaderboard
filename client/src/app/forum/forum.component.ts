@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ForumDataInt, GlobalDataInt } from 'src/interfaces/GlobalDataInt';
 import { GetDataService } from '../get-data.service';
 
 @Component({
@@ -7,10 +8,10 @@ import { GetDataService } from '../get-data.service';
   styleUrls: ['./forum.component.css'],
 })
 export class ForumComponent implements OnInit {
-  public data: any;
-  public forum: any;
+  public data: GlobalDataInt | undefined;
+  public forum: ForumDataInt[] | undefined;
   public loaded = false;
-  public updated: any;
+  public updated: string | undefined;
 
   constructor(private getDataService: GetDataService) {}
 

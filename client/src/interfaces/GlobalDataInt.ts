@@ -35,5 +35,5 @@ export interface GlobalDataInt {
   forum: ForumDataInt[];
   github: GithubDataInt[];
   news: NewsDataInt[];
-  updated_on: Date;
+  updated_on: string;
 }
