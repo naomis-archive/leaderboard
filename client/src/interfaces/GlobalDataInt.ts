@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 export interface CrowdinDataInt {
   name: string;
+  username: string;
   languages: string[];
   translations: number;
   avatar: string;
