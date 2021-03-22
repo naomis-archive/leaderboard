@@ -97,14 +97,4 @@ export class ProfileComponent implements OnInit {
 
     this.submitted = true;
   }
-
-  tweet(): void {
-    // eslint-disable-next-line max-len
-    const text = `My aggregate contribution score for @freeCodeCamp this week is ${this.userResult.aggregate}! Check your score at https://leaderboard.nhcarrigan.com`;
-    const url = `https://twitter.com/intent/tweet?text=${text.replace(
-      /\s/g,
-      '%20'
-    )}`;
-    window.open(url, '_blank');
-  }
 }
