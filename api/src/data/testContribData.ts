@@ -6,6 +6,7 @@ import { NewsContribInt } from "../interfaces/news/NewsContribInt";
 export const testCrowdinData: CrowdinContribsInt[] = [
   {
     name: "Nicholas Carrigan",
+    username: "nhcarrigan",
     languages: ["English"],
     translations: 1,
     avatar:

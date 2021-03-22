@@ -9,6 +9,7 @@ const expectedData: ContribDataInt = {
   crowdin: [
     {
       name: "Nicholas Carrigan",
+      username: "nhcarrigan",
       languages: ["English"],
       translations: 1,
       avatar:
