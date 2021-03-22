@@ -9,6 +9,7 @@ import {
   NewsDataInt,
 } from 'src/interfaces/GlobalDataInt';
 import { UserFormInt } from 'src/interfaces/ProfileInt';
+import { aggregateContribs } from 'src/helpers/aggregateContributions';
 
 @Component({
   selector: 'app-profile',
@@ -85,5 +86,14 @@ export class ProfileComponent implements OnInit {
     this.userResult.news = newsResult
       ? `${newsResult.posts} articles published`
       : 'No contributions found...';
+
+    this.userResult.aggregate = aggregateContribs(
+      crowdinResult?.translations || 0,
+      forumResult?.likes || 0,
+      gitHubResult?.commits || 0,
+      newsResult?.posts || 0
+    );
+
+    console.log(this.userResult);
   }
 }
