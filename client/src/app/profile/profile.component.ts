@@ -49,18 +49,16 @@ export class ProfileComponent implements OnInit {
         new Date(data.updated_on).toLocaleDateString() +
         ' ' +
         new Date(data.updated_on).toLocaleTimeString();
-      this.crowdin = data.crowdin.slice(0, 10);
-      this.forum = data.forum.slice(0, 10);
-      this.github = data.github.slice(0, 10);
-      this.news = data.news.slice(0, 10);
+      this.crowdin = data.crowdin;
+      this.forum = data.forum;
+      this.github = data.github;
+      this.news = data.news;
       this.loaded = true;
     });
   }
 
   onSubmit(): void {
     const targetUser: UserFormInt = this.userForm.value;
-
-    console.log(this.forum);
 
     const crowdinResult = this.crowdin?.find(
       (el) => el.username === targetUser.crowdin
@@ -87,7 +85,5 @@ export class ProfileComponent implements OnInit {
     this.userResult.news = newsResult
       ? `${newsResult.posts} articles published`
       : 'No contributions found...';
-
-    console.log(this.userResult);
   }
 }
