@@ -17,4 +17,10 @@ button {
   color: #ffffff;
   width: 50%;
   height: 50px;
+  font-family: Roboto;
+  font-size: 18pt;
+}
+
+.aggregate {
+  font-weight: bold;
 }

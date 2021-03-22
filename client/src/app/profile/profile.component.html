@@ -22,3 +22,10 @@
   </label>
   <button type="submit">Get My Data!</button>
 </form>
+<div class="data-container" *ngIf="submitted">
+  <p>Crowdin: {{ userResult.crowdin }}</p>
+  <p>Forum: {{ userResult.forum }}</p>
+  <p>GitHub: {{ userResult.github }}</p>
+  <p>News: {{ userResult.news }}</p>
+  <p class="aggregate">Aggregate Score: {{ userResult.aggregate }}</p>
+</div>

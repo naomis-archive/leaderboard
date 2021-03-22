@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   public forum: ForumDataInt[] | undefined;
   public github: GithubDataInt[] | undefined;
   public news: NewsDataInt[] | undefined;
+  public submitted = false;
   public userForm = this.formBuilder.group({
     crowdin: '',
     forum: '',
@@ -94,6 +95,6 @@ export class ProfileComponent implements OnInit {
       newsResult?.posts || 0
     );
 
-    console.log(this.userResult);
+    this.submitted = true;
   }
 }
