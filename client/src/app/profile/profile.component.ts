@@ -85,7 +85,7 @@ export class ProfileComponent implements OnInit {
 
     const newsResult = this.news?.find((el) => el.username === targetUser.news);
     this.userResult.news = newsResult
-      ? `${newsResult.posts} articles published`
+      ? `${newsResult.posts} articles published.`
       : 'No contributions found...';
 
     this.userResult.aggregate = aggregateContribs(
