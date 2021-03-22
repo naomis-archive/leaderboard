@@ -12,6 +12,12 @@ label {
   margin-bottom: 20px;
 }
 
+input {
+  background-color: #3b3b4f;
+  color: #ffffff;
+  font-family: Roboto;
+}
+
 button {
   background-color: #3b3b4f;
   color: #ffffff;
@@ -19,6 +25,11 @@ button {
   height: 50px;
   font-family: Roboto;
   font-size: 18pt;
+}
+
+.data-container {
+  max-width: 750px;
+  margin: auto;
 }
 
 .aggregate {
