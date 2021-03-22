@@ -14,6 +14,7 @@ export const compileReports = (
         continue;
       }
       const name = contributor.user.fullName;
+      const username = contributor.user.username;
       const languages = contributor.languages.map((lang) => lang.name);
       const translations = contributor.translated;
       const avatar = contributor.user.avatarUrl;
@@ -22,6 +23,7 @@ export const compileReports = (
       if (!exists) {
         compiled.push({
           name,
+          username,
           languages,
           translations,
           avatar,
