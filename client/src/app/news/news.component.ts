@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalDataInt, NewsDataInt } from 'src/interfaces/GlobalDataInt';
 import { GetDataService } from '../get-data.service';
 
 @Component({
@@ -7,10 +8,10 @@ import { GetDataService } from '../get-data.service';
   styleUrls: ['./news.component.css'],
 })
 export class NewsComponent implements OnInit {
-  public data: any;
-  public news: any;
+  public data: GlobalDataInt | undefined;
+  public news: NewsDataInt[] | undefined;
   public loaded = false;
-  public updated: any;
+  public updated: string | undefined;
 
   constructor(private getDataService: GetDataService) {}
 

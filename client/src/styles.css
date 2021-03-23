@@ -10,12 +10,16 @@ a {
   color: #ffffff;
 }
 
+p {
+  font-family: Lato;
+}
+
 @font-face {
   font-family: Roboto;
-  src: url("./assets/fonts/RobotoMono-Regular.woff");
+  src: url("./assets/fonts/RobotoMono-Regular.ttf");
 }
 
 @font-face {
   font-family: Lato;
-  src: url("./assets/fonts/Lato-Regular.woff");
+  src: url("./assets/fonts/Lato-Regular.ttf");
 }

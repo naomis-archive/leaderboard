@@ -1,0 +1,31 @@
+<h1>Your Profile</h1>
+<p>
+  Fill out the form below with your user name for each platform to see a list of
+  this week's contributions.
+</p>
+<form *ngIf="loaded" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label
+    >Crowdin Username:
+    <input type="text" formControlName="crowdin" />
+  </label>
+  <label
+    >Forum Username:
+    <input type="text" formControlName="forum" />
+  </label>
+  <label
+    >GitHub Username:
+    <input type="text" formControlName="github" />
+  </label>
+  <label
+    >News Username:
+    <input type="text" formControlName="news" />
+  </label>
+  <button type="submit">Get My Data!</button>
+</form>
+<div class="data-container" *ngIf="submitted">
+  <p>Crowdin: {{ userResult.crowdin }}</p>
+  <p>Forum: {{ userResult.forum }}</p>
+  <p>GitHub: {{ userResult.github }}</p>
+  <p>News: {{ userResult.news }}</p>
+  <p class="aggregate">Aggregate Score: {{ userResult.aggregate }}</p>
+</div>

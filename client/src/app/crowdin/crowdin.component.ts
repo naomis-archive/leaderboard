@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CrowdinDataInt, GlobalDataInt } from 'src/interfaces/GlobalDataInt';
 import { GetDataService } from '../get-data.service';
 
 @Component({
@@ -7,10 +8,10 @@ import { GetDataService } from '../get-data.service';
   styleUrls: ['./crowdin.component.css'],
 })
 export class CrowdinComponent implements OnInit {
-  public data: any;
-  public crowdin: any;
+  public data: GlobalDataInt | undefined;
+  public crowdin: CrowdinDataInt[] | undefined;
   public loaded = false;
-  public updated: any;
+  public updated: string | undefined;
 
   constructor(private getDataService: GetDataService) {}
 

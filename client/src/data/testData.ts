@@ -1,7 +1,10 @@
+import { CrowdinDataInt, ForumDataInt, GithubDataInt, GlobalDataInt, NewsDataInt } from 'src/interfaces/GlobalDataInt';
+
 /* eslint-disable @typescript-eslint/naming-convention */
-const testCrowdinData = [
+const testCrowdinData: CrowdinDataInt[] = [
   {
     name: 'Nicholas Carrigan',
+    username: 'nhcarrigan',
     languages: ['English'],
     translations: 1,
     avatar:
@@ -9,7 +12,7 @@ const testCrowdinData = [
   },
 ];
 
-const testForumData = [
+const testForumData: ForumDataInt[] = [
   {
     username: 'nhcarrigan',
     name: 'Nicholas Carrigan',
@@ -21,7 +24,7 @@ const testForumData = [
   },
 ];
 
-const testGithubData = [
+const testGithubData: GithubDataInt[] = [
   {
     username: 'nhcarrigan',
     name: 'Nicholas Carrigan',
@@ -31,7 +34,7 @@ const testGithubData = [
   },
 ];
 
-const testNewsData = [
+const testNewsData: NewsDataInt[] = [
   {
     name: 'Nicholas Carrigan',
     username: 'nhcarrigan',
@@ -42,7 +45,7 @@ const testNewsData = [
   },
 ];
 
-export const testData = {
+export const testData: GlobalDataInt = {
   crowdin: testCrowdinData,
   forum: testForumData,
   github: testGithubData,
