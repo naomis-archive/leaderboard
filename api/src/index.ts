@@ -8,10 +8,22 @@ import { readFile } from "fs/promises";
 import http from "http";
 import https from "https";
 import chalk from "chalk";
+import Sentry from "@sentry/node";
+import { RewriteFrames } from "@sentry/integrations";
 
 export const spinnies = new Spinnies();
 
 export const API = express();
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  tracesSampleRate: 1.0,
+  integrations: [
+    new RewriteFrames({
+      root: global.__dirname,
+    }),
+  ],
+});
 
 (async () => {
   spinnies.add("server-start", { color: "cyan", text: "Starting server..." });
