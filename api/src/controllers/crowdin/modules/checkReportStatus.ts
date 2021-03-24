@@ -22,6 +22,6 @@ export const checkReportStatus = async (
     return parsedData;
   } catch (error) {
     errorHandler("Crowdin: Check Report Status", error);
-    return {};
+    process.exit(1);
   }
 };
