@@ -7,7 +7,7 @@ import cors from "cors";
 import { readFile } from "fs/promises";
 import http from "http";
 import https from "https";
-import Sentry from "@sentry/node";
+import * as Sentry from "@sentry/node";
 import { RewriteFrames } from "@sentry/integrations";
 import { logHandler } from "./utils/logHandler";
 
