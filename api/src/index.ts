@@ -10,6 +10,7 @@ import https from "https";
 import * as Sentry from "@sentry/node";
 import { RewriteFrames } from "@sentry/integrations";
 import { logHandler } from "./utils/logHandler";
+import { connectDatabase } from "./controllers/database/dbConnect";
 
 export const spinnies = new Spinnies();
 
@@ -27,6 +28,15 @@ Sentry.init({
 
 (async () => {
   spinnies.add("server-start", { color: "cyan", text: "Starting server..." });
+
+  spinnies.add("database", {
+    color: "cyan",
+    text: "Connecting to database...",
+  });
+
+  await connectDatabase();
+
+  spinnies.succeed("database", { color: "green", text: "Database connected!" });
 
   spinnies.add("fetch-data", {
     color: "cyan",
@@ -59,6 +69,8 @@ Sentry.init({
   API.get("/get-data", (req, res) => sendData(req, res, contributionData));
 
   API.use(FourOhFour);
+
+  spinnies.succeed("server-start", { color: "green", text: "server running!" });
 
   const httpServer = http.createServer(API);
 
@@ -94,6 +106,4 @@ Sentry.init({
       logHandler.log("http", "HTTPS Server running on port 443!");
     });
   }
-
-  spinnies.succeed("server-start", { color: "green", text: "server running!" });
 })();
