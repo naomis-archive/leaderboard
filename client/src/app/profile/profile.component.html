@@ -1,27 +1,39 @@
 <h1>Your Profile</h1>
 <p>
-  Fill out the form below with your user name for each platform to see a list of
-  this week's contributions.
+  To add your usernames to our database, or to update your existing usernames,
+  please submit the form below!
+</p>
+<p>
+  NOTE: The new username field is optional - only submit that if you would like
+  to update your leaderboard username.
 </p>
 <form *ngIf="loaded" [formGroup]="userForm" (ngSubmit)="onSubmit()">
   <label
+    >Leaderboard Username:
+    <input type="text" formControlName="username" required
+  /></label>
+  <label
+    >NEW Leaderboard Username: <input type="text" formControlName="newUsername"
+  /></label>
+  <label
     >Crowdin Username:
-    <input type="text" formControlName="crowdin" />
+    <input type="text" formControlName="crowdin" required />
   </label>
   <label
     >Forum Username:
-    <input type="text" formControlName="forum" />
+    <input type="text" formControlName="forum" required />
   </label>
   <label
     >GitHub Username:
-    <input type="text" formControlName="github" />
+    <input type="text" formControlName="github" required />
   </label>
   <label
     >News Username:
-    <input type="text" formControlName="news" />
+    <input type="text" formControlName="news" required />
   </label>
   <button type="submit">Get My Data!</button>
 </form>
+<div class="error-message" *ngIf="error">{{ error }}</div>
 <div class="data-container" *ngIf="submitted">
   <p>Crowdin: {{ userResult.crowdin }}</p>
   <p>Forum: {{ userResult.forum }}</p>
