@@ -65,6 +65,8 @@ Sentry.init({
     })
   );
 
+  API.use(express.json());
+
   API.get("/", FourOhFour);
 
   API.get("/get-data", (req, res) => sendData(req, res, contributionData));
