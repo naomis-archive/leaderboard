@@ -82,4 +82,6 @@ export const API = express();
       console.log("HTTPS Server running on port 443!");
     });
   }
+
+  spinnies.succeed("server-start", { color: "green", text: "server running!" });
 })();
