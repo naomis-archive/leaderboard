@@ -1,4 +1,3 @@
-import chalk from "chalk";
 import { spinnies } from "..";
 import {
   testCrowdinData,
@@ -8,6 +7,7 @@ import {
 } from "../data/testContribData";
 import { ContribDataInt } from "../interfaces/ContribDataInt";
 import { errorHandler } from "../utils/errorHandler";
+import { logHandler } from "../utils/logHandler";
 import { getCrowdinContribs } from "./crowdin/getCrowdinContribs";
 import { getForumContribs } from "./forum/getForumContribs";
 import { getGithubContribs } from "./github/getGithubContribs";
@@ -17,7 +17,7 @@ export const getAllContribs = async (): Promise<ContribDataInt> => {
   try {
     // Generate test data in development environment
     if (!process.env.USE_LIVE_DATA || process.env.USE_LIVE_DATA !== "true") {
-      console.log(chalk.cyan("Development mode detected. Loading test data."));
+      logHandler.log("debug", "Development mode detected. Loading test data.");
       const testContribData: ContribDataInt = {
         crowdin: testCrowdinData,
         forum: testForumData,

@@ -7,9 +7,9 @@ import cors from "cors";
 import { readFile } from "fs/promises";
 import http from "http";
 import https from "https";
-import chalk from "chalk";
 import Sentry from "@sentry/node";
 import { RewriteFrames } from "@sentry/integrations";
+import { logHandler } from "./utils/logHandler";
 
 export const spinnies = new Spinnies();
 
@@ -66,7 +66,7 @@ Sentry.init({
     process.env.NODE_ENV === "production" ? 80 : process.env.PORT || 8080;
 
   httpServer.listen(httpPort, () => {
-    console.log(chalk.magenta(`HTTP server running on port ${httpPort}`));
+    logHandler.log("http", `HTTP server running on port ${httpPort}`);
   });
 
   if (process.env.NODE_ENV === "production") {
@@ -91,7 +91,7 @@ Sentry.init({
     const httpsServer = https.createServer(credentails, API);
 
     httpsServer.listen(443, () => {
-      console.log("HTTPS Server running on port 443!");
+      logHandler.log("http", "HTTPS Server running on port 443!");
     });
   }
 

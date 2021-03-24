@@ -10,13 +10,14 @@ import { downloadReport } from "./modules/downloadReport";
 import { generateReport } from "./modules/generateReport";
 import { getReportDownloadUrl } from "./modules/getReportDownloadUrl";
 import { errorHandler } from "../../utils/errorHandler";
+import { logHandler } from "../../utils/logHandler";
 
 export const getCrowdinContribs = async (): Promise<CrowdinContribsInt[]> => {
   try {
     const credentials = process.env.CROWDIN_API_KEY;
 
     if (!credentials) {
-      console.error("Crowdin API Token not found.");
+      logHandler.log("warn", "Crowdin API Token not found.");
       process.exit(1);
     }
 

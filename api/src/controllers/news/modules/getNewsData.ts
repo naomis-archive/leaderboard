@@ -3,13 +3,14 @@ import GhostContentAPI, {
   PostsOrPages,
 } from "@tryghost/content-api";
 import { errorHandler } from "../../../utils/errorHandler";
+import { logHandler } from "../../../utils/logHandler";
 
 export const getNewsData = async (): Promise<PostsOrPages> => {
   try {
     const apiKey = process.env.GHOST_CONTENT_API_KEY;
 
     if (!apiKey) {
-      console.error("Missing Ghost API key");
+      logHandler.warn("Missing Ghost API key");
       process.exit(1);
     }
 
