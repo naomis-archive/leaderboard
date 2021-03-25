@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserFormInt } from 'src/interfaces/ProfileInt';
 
-const url = 'https://leaderboard-api.nhcarrigan.com/get-data';
+const url = 'https://leaderboard-api.nhcarrigan.com/user';
 
 @Injectable({
   providedIn: 'root',
