@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit {
   public error = '';
   public userForm = this.formBuilder.group({
     username: '',
+    avatar: '',
     newUsername: '',
     crowdin: '',
     forum: '',
