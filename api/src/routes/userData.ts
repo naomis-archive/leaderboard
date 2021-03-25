@@ -41,7 +41,7 @@ export const postUserData = async (
       await targetUser.save();
     }
 
-    res.json(targetUser);
+    res.status(200).json(targetUser);
   } catch (error) {
     errorHandler("post user data", error);
     res.json(error);
