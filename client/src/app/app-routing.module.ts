@@ -10,7 +10,7 @@ import { TopTenComponent } from './top-ten/top-ten.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LandingComponent },
-  { path: 'top-ten', component: TopTenComponent },
+  { path: 'leaderboard', component: TopTenComponent },
   { path: 'crowdin', component: CrowdinComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'github', component: GithubComponent },
