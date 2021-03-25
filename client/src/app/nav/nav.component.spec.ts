@@ -5,7 +5,7 @@ import { NavComponent } from './nav.component';
 const navLinks = [
   {
     name: 'Leaderboard',
-    link: 'top-ten',
+    link: 'leaderboard',
     index: 1,
   },
   {
