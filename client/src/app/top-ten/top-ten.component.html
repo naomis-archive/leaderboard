@@ -1,84 +1,25 @@
 <h1>freeCodeCamp Leaderboard</h1>
 <p>
-  This page shows our top ten contributors on each platform over the last week.
+  This page shows our top contributors across all platforms. Don't see your
+  data? <a routerLink="/profile">Create or update your profile</a>.
 </p>
 <p>Thank you all for your contributions.</p>
 <p *ngIf="loaded">Updated on: {{ updated }}</p>
 <div *ngIf="loaded">
   <section>
-    <h2>Crowdin Contributors</h2>
-    <div class="header-grid-4">
-      <span>Avatar</span>
-      <span>Name</span>
-      <span>Languages Translated</span>
-      <span>Words Translated</span>
-    </div>
-    <div *ngFor="let cont of crowdin" class="contrib-grid-4">
-      <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
-      /></span>
-      <span>{{ cont.name }}</span>
-      <span>{{ cont.languages }}</span>
-      <span>{{ cont.translations }}</span>
-    </div>
-  </section>
-  <section>
-    <h2>Forum Contributors</h2>
-    <div class="header-grid-4">
-      <span>Avatar</span>
-      <span>Name (username)</span>
-      <span>Likes Received</span>
-      <span>Likes Given</span>
-    </div>
-    <div *ngFor="let cont of forum" class="contrib-grid-4">
-      <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
-      /></span>
-      <span
-        ><a target="_blank" [href]="cont.url"
-          >{{ cont.name }} ({{ cont.username }})</a
-        ></span
-      >
-      <span>{{ cont.likes }}</span>
-      <span>{{ cont.liked }}</span>
-    </div>
-  </section>
-  <section>
-    <h2>GitHub Contributors</h2>
     <div class="header-grid-3">
       <span>Avatar</span>
       <span>Name (username)</span>
-      <span>Commits</span>
+      <span>Aggregate Score</span>
     </div>
-    <div *ngFor="let cont of github" class="contrib-grid-3">
+    <div *ngFor="let cont of parsed" class="contrib-grid-3">
       <span class="avatar-cont"
         ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
       <span
-        ><a target="_blank" [href]="cont.url"
-          >{{ cont.name }} ({{ cont.username }})</a
-        ></span
+        >{{ cont.username }}</span
       >
-      <span>{{ cont.commits }}</span>
-    </div>
-  </section>
-  <section>
-    <h2>News Contributors</h2>
-    <div class="header-grid-3">
-      <span>Avatar</span>
-      <span>Name (username)</span>
-      <span>Published Posts</span>
-    </div>
-    <div *ngFor="let cont of news" class="contrib-grid-3">
-      <span class="avatar-cont"
-        ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
-      /></span>
-      <span
-        ><a target="_blank" [href]="cont.url"
-          >{{ cont.name }} ({{ cont.username }})</a
-        ></span
-      >
-      <span>{{ cont.posts }}</span>
+      <span>{{ cont.aggregate }}</span>
     </div>
   </section>
 </div>
