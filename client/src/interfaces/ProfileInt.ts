@@ -9,6 +9,7 @@ export interface UserFormInt {
 
 export interface UserDataInt {
   username: string;
+  avatar: string;
   crowdin: string;
   forum: string;
   github: string;

@@ -62,7 +62,7 @@ export class TopTenComponent implements OnInit {
           this.parsed.push({
             username: user.username,
             aggregate: userAggregate,
-            avatar: 'test',
+            avatar: user.avatar,
           });
         });
 
