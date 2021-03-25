@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  onSubmit(live = true): void {
     const targetUser: UserFormInt = this.userForm.value;
 
     if (!targetUser.username) {
@@ -78,9 +78,11 @@ export class ProfileComponent implements OnInit {
 
     this.userResult.username = targetUser.username;
 
-    this.postUserService
-      .postUser(targetUser)
-      .subscribe((data) => console.log('success!'));
+    if (live) {
+      this.postUserService
+        .postUser(targetUser)
+        .subscribe((data) => console.log('success!'));
+    }
 
     const crowdinResult = this.crowdin?.find(
       (el) => el.username === targetUser.crowdin

@@ -43,6 +43,7 @@ describe('ProfileComponent', () => {
     expect(component.updated).toBeDefined('missing updated property');
     expect(component.userForm).toBeDefined('missing userForm property');
     expect(component.userResult).toBeDefined('missing userResult property');
+    expect(component.error).toBeDefined('missing error property');
   });
 
   it('should render the title correctly', () => {
@@ -51,9 +52,13 @@ describe('ProfileComponent', () => {
   });
 
   it('should render the description correctly', () => {
-    const description = compiled.querySelector('p').textContent;
-    expect(description.trim()).toEqual(
-      `Fill out the form below with your user name for each platform to see a list of this week's contributions.`,
+    const description = compiled.querySelectorAll('p');
+    expect(description[0].textContent.trim()).toEqual(
+      `To add your usernames to our database, or to update your existing usernames, please submit the form below!`,
+      'does not have correct description'
+    );
+    expect(description[1].textContent.trim()).toEqual(
+      `NOTE: The new username field is optional - only submit that if you would like to update your leaderboard username.`,
       'does not have correct description'
     );
   });
@@ -67,20 +72,32 @@ describe('ProfileComponent', () => {
 
   it('should render the form component correctly', () => {
     const form = compiled.querySelector('form');
-    // labels are children, inputs are children.children
-    const labels = form.children;
-    expect(labels[0].textContent).toBe('Crowdin Username: ');
+    const labels = form.querySelectorAll('label');
+    expect(labels.length).toEqual(7, 'incorrect number of labels');
+    expect(labels[0].textContent).toBe('Leaderboard Username: ');
     expect(labels[0].children[0].getAttribute('formControlName')).toBe(
+      'username'
+    );
+    expect(labels[1].textContent).toBe('Avatar URL: ');
+    expect(labels[1].children[0].getAttribute('formControlName')).toBe(
+      'avatar'
+    );
+    expect(labels[2].textContent).toBe('NEW Leaderboard Username: ');
+    expect(labels[2].children[0].getAttribute('formControlName')).toBe(
+      'newUsername'
+    );
+    expect(labels[3].textContent).toBe('Crowdin Username: ');
+    expect(labels[3].children[0].getAttribute('formControlName')).toBe(
       'crowdin'
     );
-    expect(labels[1].textContent).toBe('Forum Username: ');
-    expect(labels[1].children[0].getAttribute('formControlName')).toBe('forum');
-    expect(labels[2].textContent).toBe('GitHub Username: ');
-    expect(labels[2].children[0].getAttribute('formControlName')).toBe(
+    expect(labels[4].textContent).toBe('Forum Username: ');
+    expect(labels[4].children[0].getAttribute('formControlName')).toBe('forum');
+    expect(labels[5].textContent).toBe('GitHub Username: ');
+    expect(labels[5].children[0].getAttribute('formControlName')).toBe(
       'github'
     );
-    expect(labels[3].textContent).toBe('News Username: ');
-    expect(labels[3].children[0].getAttribute('formControlName')).toBe('news');
+    expect(labels[6].textContent).toBe('News Username: ');
+    expect(labels[6].children[0].getAttribute('formControlName')).toBe('news');
   });
 
   it('should render the submit button correctly', () => {
@@ -95,11 +112,12 @@ describe('ProfileComponent', () => {
   });
 
   it('should render the returned data correctly (with valid username)', () => {
+    component.userForm.controls.username.setValue('nhcarrigan');
     component.userForm.controls.crowdin.setValue('nhcarrigan');
     component.userForm.controls.forum.setValue('nhcarrigan');
     component.userForm.controls.github.setValue('nhcarrigan');
     component.userForm.controls.news.setValue('nhcarrigan');
-    component.onSubmit();
+    component.onSubmit(false);
     fixture.detectChanges();
     const result = compiled.querySelector('.data-container').children;
     expect(result[0].textContent).toBe('Crowdin: 1 words translated.');
@@ -112,11 +130,12 @@ describe('ProfileComponent', () => {
   });
 
   it('should handle the returned data correctly (with invalid username)', () => {
+    component.userForm.controls.username.setValue('fakeusername');
     component.userForm.controls.crowdin.setValue('fakeusername');
     component.userForm.controls.forum.setValue('fakeusername');
     component.userForm.controls.github.setValue('fakeusername');
     component.userForm.controls.news.setValue('fakeusername');
-    component.onSubmit();
+    component.onSubmit(false);
     fixture.detectChanges();
     const result = compiled.querySelector('.data-container').children;
     expect(result[0].textContent).toBe('Crowdin: No contributions found...');
@@ -127,17 +146,10 @@ describe('ProfileComponent', () => {
   });
 
   it('should handle the returned data correctly (with no username)', () => {
-    component.userForm.controls.crowdin.setValue('');
-    component.userForm.controls.forum.setValue('');
-    component.userForm.controls.github.setValue('');
-    component.userForm.controls.news.setValue('');
-    component.onSubmit();
+    component.userForm.controls.username.setValue('');
+    component.onSubmit(false);
     fixture.detectChanges();
-    const result = compiled.querySelector('.data-container').children;
-    expect(result[0].textContent).toBe('Crowdin: No contributions found...');
-    expect(result[1].textContent).toBe('Forum: No contributions found...');
-    expect(result[2].textContent).toBe('GitHub: No contributions found...');
-    expect(result[3].textContent).toBe('News: No contributions found...');
-    expect(result[4].textContent).toBe('Aggregate Score: 0');
+    const result = compiled.querySelector('.error-message');
+    expect(result.textContent.trim()).toBe('Username is required!');
   });
 });
