@@ -3,10 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { UserDataInt } from 'src/interfaces/ProfileInt';
 
-/* Uncomment before deploying
-const URL = 'https://leaderboard-api.nhcarrigan.com/user'
-*/
-const URL = 'http://localhost:8000/user';
+const URL = 'https://leaderboard-api.nhcarrigan.com/user';
 
 @Injectable({
   providedIn: 'root',
