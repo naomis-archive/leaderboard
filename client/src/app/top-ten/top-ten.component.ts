@@ -65,7 +65,7 @@ export class TopTenComponent implements OnInit {
             avatar: user.avatar,
           });
         });
-
+        this.parsed.sort((a, b) => b.aggregate - a.aggregate);
         this.loaded = true;
       });
     });
