@@ -2,10 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserFormInt } from 'src/interfaces/ProfileInt';
 
-/* Uncomment before shipping
-const url = 'https://leaderboard-api.nhcarrigan.com/get-data'
-*/
-const url = 'http://localhost:8000/user';
+const url = 'https://leaderboard-api.nhcarrigan.com/get-data';
 
 @Injectable({
   providedIn: 'root',
