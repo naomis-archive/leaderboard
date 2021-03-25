@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalDataInt } from 'src/interfaces/GlobalDataInt';
-import { GetDataService } from '../get-data.service';
 
 @Component({
   selector: 'app-landing',

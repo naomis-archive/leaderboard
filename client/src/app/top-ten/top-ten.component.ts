@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { CrowdinDataInt, ForumDataInt, GithubDataInt, GlobalDataInt, NewsDataInt } from 'src/interfaces/GlobalDataInt';
+import { aggregateContribs } from 'src/helpers/aggregateContributions';
+import {
+  CrowdinDataInt,
+  ForumDataInt,
+  GithubDataInt,
+  GlobalDataInt,
+  NewsDataInt,
+} from 'src/interfaces/GlobalDataInt';
+import { ParsedUserInt } from 'src/interfaces/ProfileInt';
 import { GetDataService } from '../get-data.service';
+import { GetUserService } from '../get-user.service';
 
 @Component({
   selector: 'app-top-ten',
@@ -15,7 +24,11 @@ export class TopTenComponent implements OnInit {
   public forum: ForumDataInt[] | undefined;
   public github: GithubDataInt[] | undefined;
   public news: NewsDataInt[] | undefined;
-  constructor(private getDataService: GetDataService) {}
+  public parsed: ParsedUserInt[] = [];
+  constructor(
+    private getDataService: GetDataService,
+    private getUserServer: GetUserService
+  ) {}
 
   ngOnInit(): void {
     this.getDataService.getData().subscribe((data) => {
@@ -24,11 +37,37 @@ export class TopTenComponent implements OnInit {
         new Date(data.updated_on).toLocaleDateString() +
         ' ' +
         new Date(data.updated_on).toLocaleTimeString();
-      this.crowdin = data.crowdin.slice(0, 10);
-      this.forum = data.forum.slice(0, 10);
-      this.github = data.github.slice(0, 10);
-      this.news = data.news.slice(0, 10);
-      this.loaded = true;
+      this.crowdin = data.crowdin;
+      this.forum = data.forum;
+      this.github = data.github;
+      this.news = data.news;
+      this.getUserServer.getUser().subscribe((userData) => {
+        userData.forEach((user) => {
+          const userCrowdin = this.crowdin?.find(
+            (el) => el.username === user.crowdin
+          );
+          const userForum = this.forum?.find(
+            (el) => el.username === user.forum
+          );
+          const userGithub = this.github?.find(
+            (el) => el.username === user.github
+          );
+          const userNews = this.news?.find((el) => el.username === user.news);
+          const userAggregate = aggregateContribs(
+            userCrowdin?.translations || 0,
+            userForum?.likes || 0,
+            userGithub?.commits || 0,
+            userNews?.posts || 0
+          );
+          this.parsed.push({
+            username: user.username,
+            aggregate: userAggregate,
+            avatar: user.avatar,
+          });
+        });
+        this.parsed.sort((a, b) => b.aggregate - a.aggregate);
+        this.loaded = true;
+      });
     });
   }
   onImgError(event: any) {

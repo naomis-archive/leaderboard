@@ -10,6 +10,7 @@ import {
 } from 'src/interfaces/GlobalDataInt';
 import { UserFormInt } from 'src/interfaces/ProfileInt';
 import { aggregateContribs } from 'src/helpers/aggregateContributions';
+import { PostUserService } from '../post-user.service';
 
 @Component({
   selector: 'app-profile',
@@ -25,7 +26,11 @@ export class ProfileComponent implements OnInit {
   public github: GithubDataInt[] | undefined;
   public news: NewsDataInt[] | undefined;
   public submitted = false;
+  public error = '';
   public userForm = this.formBuilder.group({
+    username: '',
+    avatar: '',
+    newUsername: '',
     crowdin: '',
     forum: '',
     github: '',
@@ -33,6 +38,7 @@ export class ProfileComponent implements OnInit {
   });
 
   public userResult = {
+    username: '',
     crowdin: '',
     forum: '',
     github: '',
@@ -41,6 +47,7 @@ export class ProfileComponent implements OnInit {
   };
   constructor(
     private getDataService: GetDataService,
+    private postUserService: PostUserService,
     private formBuilder: FormBuilder
   ) {}
 
@@ -59,8 +66,23 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  onSubmit(live = true): void {
     const targetUser: UserFormInt = this.userForm.value;
+
+    if (!targetUser.username) {
+      this.error = 'Username is required!';
+      return;
+    }
+
+    this.error = '';
+
+    this.userResult.username = targetUser.username;
+
+    if (live) {
+      this.postUserService
+        .postUser(targetUser)
+        .subscribe((data) => console.log('success!'));
+    }
 
     const crowdinResult = this.crowdin?.find(
       (el) => el.username === targetUser.crowdin
