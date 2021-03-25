@@ -3,6 +3,7 @@ import encrypt from "mongoose-encryption";
 
 export interface UserInt extends Document {
   username: string;
+  avatar: string;
   crowdin: string;
   forum: string;
   github: string;
@@ -11,6 +12,7 @@ export interface UserInt extends Document {
 
 export const User = new Schema({
   username: String,
+  avatar: String,
   crowdin: String,
   forum: String,
   github: String,

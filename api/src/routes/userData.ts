@@ -25,6 +25,7 @@ export const postUserData = async (
     if (!targetUser) {
       targetUser = await UserModel.create({
         username: userData.newUsername || userData.username,
+        avatar: userData.avatar,
         crowdin: userData.crowdin,
         forum: userData.forum,
         github: userData.github,
@@ -32,6 +33,7 @@ export const postUserData = async (
       });
     } else {
       targetUser.username = userData.newUsername || userData.username;
+      targetUser.avatar = userData.avatar || targetUser.avatar;
       targetUser.crowdin = userData.crowdin || targetUser.crowdin;
       targetUser.forum = userData.forum || targetUser.forum;
       targetUser.github = userData.github || targetUser.github;
