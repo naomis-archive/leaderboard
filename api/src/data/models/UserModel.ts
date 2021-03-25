@@ -18,15 +18,15 @@ export const User = new Schema({
   github: String,
   news: String,
 });
+if (process.env.ENCRYPTION_KEY && process.env.SIGNING_KEY) {
+  const encryptionKey = process.env.ENCRYPTION_KEY;
+  const signingKey = process.env.SIGNING_KEY;
 
-const encryptionKey = process.env.ENCRYPTION_KEY;
-const signingKey = process.env.SIGNING_KEY;
-
-User.plugin(encrypt, {
-  encryptionKey,
-  signingKey,
-  excludeFromEncryption: ["username"],
-  requireAuthenticationCode: false,
-});
-
+  User.plugin(encrypt, {
+    encryptionKey,
+    signingKey,
+    excludeFromEncryption: ["username"],
+    requireAuthenticationCode: false,
+  });
+}
 export default model<UserInt>("User", User);
