@@ -2,6 +2,13 @@ import { Request, Response } from "express";
 import UserModel from "../data/models/UserModel";
 import { UserDataInt } from "../interfaces/UserDataInt";
 import { errorHandler } from "../utils/errorHandler";
+import sanitize from "mongo-sanitize";
+import sanitizeHtml from "sanitize-html";
+
+const htmlOpts = {
+  allowedTags: [],
+  allowedAttributes: {},
+};
 
 export const getUserData = async (_: Request, res: Response): Promise<void> => {
   try {
@@ -20,24 +27,51 @@ export const postUserData = async (
   try {
     const userData: UserDataInt = req.body;
 
-    let targetUser = await UserModel.findOne({ username: userData.username });
+    if (!userData.username) {
+      return;
+    }
+
+    let targetUser = await UserModel.findOne({
+      username: sanitizeHtml(sanitize(userData.username), htmlOpts),
+    });
 
     if (!targetUser) {
       targetUser = await UserModel.create({
-        username: userData.newUsername || userData.username,
-        avatar: userData.avatar,
-        crowdin: userData.crowdin,
-        forum: userData.forum,
-        github: userData.github,
-        news: userData.news,
+        username: sanitizeHtml(
+          sanitize(userData.newUsername || userData.username),
+          htmlOpts
+        ),
+        avatar: sanitizeHtml(userData.avatar, htmlOpts),
+        crowdin: sanitizeHtml(userData.crowdin, htmlOpts),
+        forum: sanitizeHtml(userData.forum, htmlOpts),
+        github: sanitizeHtml(userData.github, htmlOpts),
+        news: sanitizeHtml(userData.news, htmlOpts),
       });
     } else {
-      targetUser.username = userData.newUsername || userData.username;
-      targetUser.avatar = userData.avatar || targetUser.avatar;
-      targetUser.crowdin = userData.crowdin || targetUser.crowdin;
-      targetUser.forum = userData.forum || targetUser.forum;
-      targetUser.github = userData.github || targetUser.github;
-      targetUser.news = userData.news || targetUser.news;
+      targetUser.username = sanitizeHtml(
+        sanitize(userData.newUsername || userData.username),
+        htmlOpts
+      );
+      targetUser.avatar = sanitizeHtml(
+        userData.avatar || targetUser.avatar,
+        htmlOpts
+      );
+      targetUser.crowdin = sanitizeHtml(
+        userData.crowdin || targetUser.crowdin,
+        htmlOpts
+      );
+      targetUser.forum = sanitizeHtml(
+        userData.forum || targetUser.forum,
+        htmlOpts
+      );
+      targetUser.github = sanitizeHtml(
+        userData.github || targetUser.github,
+        htmlOpts
+      );
+      targetUser.news = sanitizeHtml(
+        userData.news || targetUser.news,
+        htmlOpts
+      );
       await targetUser.save();
     }
 
