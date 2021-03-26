@@ -7,3 +7,9 @@ export interface UserDataInt {
   github: string;
   news: string;
 }
+
+export interface AggregateDataInt {
+  username: string;
+  aggregate: number;
+  avatar: string;
+}

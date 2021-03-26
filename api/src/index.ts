@@ -12,6 +12,7 @@ import { RewriteFrames } from "@sentry/integrations";
 import { logHandler } from "./utils/logHandler";
 import { connectDatabase } from "./controllers/database/dbConnect";
 import { getUserData, postUserData } from "./routes/userData";
+import { getAggregateData } from "./routes/aggregateData";
 
 export const spinnies = new Spinnies();
 
@@ -74,6 +75,10 @@ Sentry.init({
   API.get("/user", async (req, res) => getUserData(req, res));
 
   API.post("/user", async (req, res) => postUserData(req, res));
+
+  API.get("/aggregate", async (req, res) =>
+    getAggregateData(req, res, contributionData)
+  );
 
   API.use(FourOhFour);
 
