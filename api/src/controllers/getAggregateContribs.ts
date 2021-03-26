@@ -6,9 +6,12 @@ import { AggregateDataInt } from "../interfaces/UserDataInt";
 
 export const getAggregateContribs = async (
   contribData: ContribDataInt
-): Promise<AggregateDataInt[]> => {
+): Promise<AggregateDataInt> => {
   spinnies.add("aggregate", { color: "cyan", text: "Aggregating data..." });
-  const data: AggregateDataInt[] = [];
+  const data: AggregateDataInt = {
+    data: [],
+    updated: contribData.updated_on.toString(),
+  };
 
   const { crowdin, forum, news, github } = contribData;
 
@@ -26,7 +29,7 @@ export const getAggregateContribs = async (
       userNews?.posts || 0
     );
 
-    data.push({
+    data.data.push({
       username: user.username,
       aggregate: userAggregate,
       avatar: user.avatar,

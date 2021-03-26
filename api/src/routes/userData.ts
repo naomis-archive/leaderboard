@@ -26,7 +26,7 @@ export const postUserData = async (
   req: Request,
   res: Response,
   contribData: ContribDataInt,
-  aggregateData: AggregateDataInt[]
+  aggregateData: AggregateDataInt
 ): Promise<void> => {
   try {
     const userData: UserDataInt = req.body;
@@ -94,7 +94,7 @@ export const postUserData = async (
       userNews?.posts || 0
     );
 
-    const updatedUser: AggregateDataInt = {
+    const updatedUser = {
       username: targetUser.username,
       aggregate: userAggregate,
       avatar: targetUser.avatar,
@@ -113,14 +113,14 @@ export const postUserData = async (
     };
 
     // Need to use the *old* username to query the cached aggregation records.
-    const targetIndex = aggregateData.findIndex(
+    const targetIndex = aggregateData.data.findIndex(
       (el) => el.username === userData.username
     );
 
     if (targetIndex !== -1) {
-      aggregateData[targetIndex] = updatedUser;
+      aggregateData.data[targetIndex] = updatedUser;
     } else {
-      aggregateData.push(updatedUser);
+      aggregateData.data.push(updatedUser);
     }
     res.status(200).json(targetUser);
   } catch (error) {

@@ -5,7 +5,7 @@ import { errorHandler } from "../utils/errorHandler";
 export const getAggregateData = async (
   _: Request,
   res: Response,
-  aggregateData: AggregateDataInt[]
+  aggregateData: AggregateDataInt
 ): Promise<void> => {
   try {
     res.status(200).json(aggregateData);

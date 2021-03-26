@@ -48,7 +48,7 @@ Sentry.init({
 
   const contributionData = await getAllContribs();
 
-  const aggregateData: AggregateDataInt[] = await getAggregateContribs(
+  const aggregateData: AggregateDataInt = await getAggregateContribs(
     contributionData
   );
 
