@@ -94,7 +94,7 @@ export const postUserData = async (
       userNews?.posts || 0
     );
 
-    aggregateData.push({
+    const updatedUser: AggregateDataInt = {
       username: targetUser.username,
       aggregate: userAggregate,
       avatar: targetUser.avatar,
@@ -110,8 +110,18 @@ export const postUserData = async (
       news: {
         posts: userNews?.posts || 0,
       },
-    });
+    };
 
+    // Need to use the *old* username to query the cached aggregation records.
+    const targetIndex = aggregateData.findIndex(
+      (el) => el.username === userData.username
+    );
+
+    if (targetIndex !== -1) {
+      aggregateData[targetIndex] = updatedUser;
+    } else {
+      aggregateData.push(updatedUser);
+    }
     res.status(200).json(targetUser);
   } catch (error) {
     errorHandler("post user data", error);
