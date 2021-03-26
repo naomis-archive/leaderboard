@@ -1,5 +1,6 @@
 import chai, { assert } from "chai";
 import http from "chai-http";
+import UserModel, { UserInt } from "../../data/models/UserModel";
 import { API } from "../../index";
 
 chai.use(http);
@@ -19,10 +20,13 @@ const updatedData = {
   crowdin: "better crowdin",
 };
 
+let cleanupId = "";
+
 suite("User Route", () => {
   test("should return correct data on post", async () => {
     const response = await chai.request(API).post("/user").send(mockData);
     const actualData = response.body;
+    cleanupId = response.body._id;
     assert.equal(response.status, 200, "does not return status 200");
     assert.equal(
       actualData.username,
@@ -130,7 +134,9 @@ suite("User Route", () => {
 
   test("should return saved and updated data on get", async () => {
     const response = await chai.request(API).get("/user");
-    const actualData = response.body[0];
+    const actualData = response.body.find(
+      (el: UserInt) => el._id === cleanupId
+    );
     assert.equal(response.status, 200, "does not return status 200");
     assert.equal(
       actualData.username,
@@ -162,5 +168,11 @@ suite("User Route", () => {
       mockData.news,
       "does not send back correct news"
     );
+  });
+
+  test("clean up data...", async () => {
+    await UserModel.deleteOne({ _id: cleanupId });
+    const response = await chai.request(API).get("/user");
+    assert.equal(response.body.length, 0, "did not clear test data");
   });
 });
