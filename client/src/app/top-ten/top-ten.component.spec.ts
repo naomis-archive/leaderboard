@@ -18,13 +18,7 @@ fdescribe('TopTenComponent', () => {
     fixture = TestBed.createComponent(TopTenComponent);
     component = fixture.componentInstance;
     component.data = testData;
-    component.crowdin = testData.crowdin;
-    component.forum = testData.forum;
-    component.github = testData.github;
-    component.news = testData.news;
-    component.updated = testData.updated_on;
     component.loaded = true;
-    component.parsed = testUserData.sort((a, b) => b.aggregate - a.aggregate);
     fixture.detectChanges();
     compiled = fixture.debugElement.nativeElement;
   });
@@ -34,14 +28,8 @@ fdescribe('TopTenComponent', () => {
   });
 
   it('should have the correct properties', () => {
-    expect(component.crowdin).toBeDefined('missing crowdin property');
-    expect(component.forum).toBeDefined('missing forum property');
-    expect(component.github).toBeDefined('missing github property');
-    expect(component.news).toBeDefined('missing news property');
     expect(component.data).toBeDefined('missing data property');
     expect(component.loaded).toBeDefined('missing loaded property');
-    expect(component.updated).toBeDefined('missing updated property');
-    expect(component.parsed).toBeDefined('missing parsed property');
   });
 
   it('should render the title correctly', () => {

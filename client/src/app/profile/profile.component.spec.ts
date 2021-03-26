@@ -18,13 +18,6 @@ describe('ProfileComponent', () => {
     fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;
     compiled = fixture.nativeElement;
-    component.data = testData;
-    component.crowdin = testData.crowdin;
-    component.forum = testData.forum;
-    component.github = testData.github;
-    component.news = testData.news;
-    component.updated = testData.updated_on;
-    component.loaded = true;
     fixture.detectChanges();
   });
 
@@ -33,14 +26,7 @@ describe('ProfileComponent', () => {
   });
 
   it('should have the correct properties', () => {
-    expect(component.crowdin).toBeDefined('missing crowdin property');
-    expect(component.data).toBeDefined('missing data property');
-    expect(component.forum).toBeDefined('missing forum property');
-    expect(component.github).toBeDefined('missing github property');
-    expect(component.loaded).toBeDefined('missing loaded property');
-    expect(component.news).toBeDefined('missing news property');
     expect(component.submitted).toBeDefined('missing submitted property');
-    expect(component.updated).toBeDefined('missing updated property');
     expect(component.userForm).toBeDefined('missing userForm property');
     expect(component.userResult).toBeDefined('missing userResult property');
     expect(component.error).toBeDefined('missing error property');
@@ -64,7 +50,6 @@ describe('ProfileComponent', () => {
   });
 
   it('should not show the form before the data is loaded', () => {
-    component.loaded = false;
     fixture.detectChanges();
     const form = compiled.querySelector('form');
     expect(form).toBeNull();

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GetUserService } from './get-user.service';
+import { GetAggregateService } from './get-aggregate.service';
 
-describe('GetUserService', () => {
-  let service: GetUserService;
+describe('GetAggregateService', () => {
+  let service: GetAggregateService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GetUserService);
+    service = TestBed.inject(GetAggregateService);
   });
 
   it('should be created', () => {

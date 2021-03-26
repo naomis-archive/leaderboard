@@ -9,15 +9,18 @@ export interface UserFormInt {
 
 export interface UserDataInt {
   username: string;
-  avatar: string;
-  crowdin: string;
-  forum: string;
-  github: string;
-  news: string;
-}
-
-export interface ParsedUserInt {
-  username: string;
   aggregate: number;
   avatar: string;
+  crowdin: {
+    words: number;
+  };
+  forum: {
+    likes: number;
+  };
+  github: {
+    commits: number;
+  };
+  news: {
+    posts: number;
+  };
 }
