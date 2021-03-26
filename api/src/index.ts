@@ -1,7 +1,6 @@
 import express from "express";
 import { getAllContribs } from "./controllers/getAllContribs";
 import Spinnies from "spinnies";
-import { sendData } from "./routes/sendData";
 import { FourOhFour } from "./routes/FourOhFour";
 import cors from "cors";
 import { readFile } from "fs/promises";
@@ -69,8 +68,6 @@ Sentry.init({
   API.use(express.json());
 
   API.get("/", FourOhFour);
-
-  API.get("/get-data", (req, res) => sendData(req, res, contributionData));
 
   API.get("/user", async (req, res) => getUserData(req, res));
 
