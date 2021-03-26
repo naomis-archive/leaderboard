@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
 import UserModel from "../data/models/UserModel";
-import { UserDataInt } from "../interfaces/UserDataInt";
+import { AggregateDataInt, UserDataInt } from "../interfaces/UserDataInt";
 import { errorHandler } from "../utils/errorHandler";
 import sanitize from "mongo-sanitize";
 import sanitizeHtml from "sanitize-html";
+import { ContribDataInt } from "../interfaces/ContribDataInt";
+import { aggregate } from "../helpers/aggregate";
 
 const htmlOpts = {
   allowedTags: [],
@@ -22,10 +24,14 @@ export const getUserData = async (_: Request, res: Response): Promise<void> => {
 
 export const postUserData = async (
   req: Request,
-  res: Response
+  res: Response,
+  contribData: ContribDataInt,
+  aggregateData: AggregateDataInt[]
 ): Promise<void> => {
   try {
     const userData: UserDataInt = req.body;
+
+    const { crowdin, forum, news, github } = contribData;
 
     if (!userData.username) {
       return;
@@ -74,6 +80,37 @@ export const postUserData = async (
       );
       await targetUser.save();
     }
+
+    const userCrowdin = crowdin.find(
+      (el) => el.username === targetUser?.crowdin
+    );
+    const userForum = forum.find((el) => el.username === targetUser?.forum);
+    const userNews = news.find((el) => el.username === targetUser?.news);
+    const userGithub = github.find((el) => el.username === targetUser?.github);
+    const userAggregate = aggregate(
+      userCrowdin?.translations || 0,
+      userForum?.likes || 0,
+      userGithub?.commits || 0,
+      userNews?.posts || 0
+    );
+
+    aggregateData.push({
+      username: targetUser.username,
+      aggregate: userAggregate,
+      avatar: targetUser.avatar,
+      crowdin: {
+        words: userCrowdin?.translations || 0,
+      },
+      forum: {
+        likes: userForum?.likes || 0,
+      },
+      github: {
+        commits: userGithub?.commits || 0,
+      },
+      news: {
+        posts: userNews?.posts || 0,
+      },
+    });
 
     res.status(200).json(targetUser);
   } catch (error) {

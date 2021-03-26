@@ -1,54 +1,15 @@
 import { Request, Response } from "express";
-import UserModel from "../data/models/UserModel";
-import { ContribDataInt } from "../interfaces/ContribDataInt";
 import { AggregateDataInt } from "../interfaces/UserDataInt";
-import { aggregate } from "../helpers/aggregate";
 import { errorHandler } from "../utils/errorHandler";
 
 export const getAggregateData = async (
   _: Request,
   res: Response,
-  contribData: ContribDataInt
+  aggregateData: AggregateDataInt[]
 ): Promise<void> => {
-  const data: AggregateDataInt[] = [];
-
-  const { crowdin, forum, news, github } = contribData;
-
-  const users = await UserModel.find();
-
-  users.forEach((user) => {
-    try {
-      const userCrowdin = crowdin.find((el) => el.username === user.crowdin);
-      const userForum = forum.find((el) => el.username === user.forum);
-      const userNews = news.find((el) => el.username === user.news);
-      const userGithub = github.find((el) => el.username === user.github);
-      const userAggregate = aggregate(
-        userCrowdin?.translations || 0,
-        userForum?.likes || 0,
-        userGithub?.commits || 0,
-        userNews?.posts || 0
-      );
-
-      data.push({
-        username: user.username,
-        aggregate: userAggregate,
-        avatar: user.avatar,
-        crowdin: {
-          words: userCrowdin?.translations || 0,
-        },
-        forum: {
-          likes: userForum?.likes || 0,
-        },
-        github: {
-          commits: userGithub?.commits || 0,
-        },
-        news: {
-          posts: userNews?.posts || 0,
-        },
-      });
-      res.status(200).json(data);
-    } catch (error) {
-      errorHandler("aggregate data route", error);
-    }
-  });
+  try {
+    res.status(200).json(aggregateData);
+  } catch (error) {
+    errorHandler("aggregate data route", error);
+  }
 };
