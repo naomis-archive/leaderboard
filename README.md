@@ -8,6 +8,12 @@ This project is not yet an official freeCodeCamp application.
 
 The client is built with Angular and TypeScript, and the API is built with TypeScript and Express.
 
+![](https://img.shields.io/codeclimate/maintainability/nhcarrigan/leaderboard)
+![](https://img.shields.io/codeclimate/issues/nhcarrigan/leaderboard)
+![](https://img.shields.io/codeclimate/tech-debt/nhcarrigan/leaderboard)
+![](https://img.shields.io/lgtm/alerts/github/nhcarrigan/leaderboard)
+![](https://img.shields.io/lgtm/grade/javascript/github/nhcarrigan/leaderboard)
+
 ## Live Version
 
 This page is currently deployed. [View the live website.](https://leaderboard.nhcarrigan.com)
@@ -30,7 +36,7 @@ Copyright (C) 2021 Nicholas Carrigan
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 
 The full license terms may be viewed in the [LICENSE.md file](./LICENSE.md)
 
