@@ -7,6 +7,7 @@ chai.use(http);
 
 const mockData = {
   username: "unit testing",
+  password: "testing",
   avatar: "https://google.com",
   crowdin: "unit testing crowdin",
   forum: "unit testing forum",
@@ -16,6 +17,7 @@ const mockData = {
 
 const updatedData = {
   username: "unit testing",
+  password: "testing",
   newUsername: "better unit testing",
   crowdin: "better crowdin",
 };
