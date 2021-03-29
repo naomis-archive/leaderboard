@@ -6,6 +6,7 @@ import sanitize from "mongo-sanitize";
 import sanitizeHtml from "sanitize-html";
 import { ContribDataInt } from "../interfaces/ContribDataInt";
 import { aggregate } from "../helpers/aggregate";
+import { hash, compare, genSalt } from "bcrypt";
 
 const htmlOpts = {
   allowedTags: [],
@@ -55,11 +56,14 @@ export const postUserData = async (
     });
 
     if (!targetUser) {
+      const salt = await genSalt(10);
+      const hashedPassword = await hash(userData.password, salt);
       targetUser = await UserModel.create({
         username: sanitizeHtml(
           sanitize(userData.newUsername || userData.username),
           htmlOpts
         ),
+        password: hashedPassword,
         avatar: sanitizeHtml(userData.avatar, htmlOpts),
         crowdin: sanitizeHtml(userData.crowdin, htmlOpts),
         forum: sanitizeHtml(userData.forum, htmlOpts),
@@ -67,6 +71,16 @@ export const postUserData = async (
         news: sanitizeHtml(userData.news, htmlOpts),
       });
     } else {
+      const comparePasswords = await compare(
+        userData.password,
+        targetUser.password
+      );
+      if (!comparePasswords) {
+        res
+          .status(401)
+          .json({ message: "Incorrect password. Please try again." });
+        return;
+      }
       targetUser.username = sanitizeHtml(
         sanitize(userData.newUsername || userData.username),
         htmlOpts

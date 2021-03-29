@@ -1,5 +1,6 @@
 export interface UserDataInt {
   username: string;
+  password: string;
   avatar: string;
   newUsername?: string;
   crowdin: string;
