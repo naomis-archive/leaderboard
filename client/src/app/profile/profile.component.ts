@@ -44,10 +44,16 @@ export class ProfileComponent implements OnInit {
     this.error = '';
 
     if (live) {
-      this.postUserService.postUser(targetUser).subscribe((data) => {
-        this.userResult = data;
-        this.submitted = true;
-      });
+      this.postUserService.postUser(targetUser).subscribe(
+        (data) => {
+          this.userResult = data;
+          this.submitted = true;
+        },
+        (error) => {
+          this.error = error.message;
+          this.submitted = false;
+        }
+      );
     }
 
     this.submitted = true;
