@@ -3,8 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { AggregateDataInt } from 'src/interfaces/AggregateDataInt';
 
-//const URL = 'https://leaderboard-api.nhcarrigan.com/aggregate';
-const URL = 'http://localhost:8000/aggregate';
+const URL = 'https://leaderboard-api.nhcarrigan.com/aggregate';
 
 @Injectable({
   providedIn: 'root',
