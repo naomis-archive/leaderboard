@@ -50,12 +50,10 @@ export class ProfileComponent implements OnInit {
           this.submitted = true;
         },
         (error) => {
-          this.error = error.message;
+          this.error = error.error.message;
           this.submitted = false;
         }
       );
     }
-
-    this.submitted = true;
   }
 }
