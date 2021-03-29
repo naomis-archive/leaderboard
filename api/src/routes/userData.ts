@@ -37,6 +37,19 @@ export const postUserData = async (
       return;
     }
 
+    if (userData.newUsername) {
+      const newUsernameTaken = await UserModel.findOne({
+        username: sanitizeHtml(sanitize(userData.newUsername), htmlOpts),
+      });
+
+      if (newUsernameTaken) {
+        res.status(409).json({
+          message: "Your new username is already taken. Please select another.",
+        });
+        return;
+      }
+    }
+
     let targetUser = await UserModel.findOne({
       username: sanitizeHtml(sanitize(userData.username), htmlOpts),
     });
