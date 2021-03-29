@@ -1,14 +1,3 @@
-export interface UserDataInt {
-  username: string;
-  password: string;
-  avatar: string;
-  newUsername?: string;
-  crowdin: string;
-  forum: string;
-  github: string;
-  news: string;
-}
-
 export interface AggregateDataInt {
   data: {
     username: string;

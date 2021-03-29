@@ -4,7 +4,7 @@
   data? <a routerLink="/profile">Create or update your profile</a>.
 </p>
 <p>Thank you all for your contributions.</p>
-<p *ngIf="loaded">Updated on: {{ updated }}</p>
+<p *ngIf="loaded">Updated on: {{ data.updated }}</p>
 <div *ngIf="loaded">
   <section>
     <div class="header-grid-3">
@@ -12,7 +12,7 @@
       <span>Username</span>
       <span>Aggregate Score</span>
     </div>
-    <div *ngFor="let cont of parsed" class="contrib-grid-3">
+    <div *ngFor="let cont of data.data" class="contrib-grid-3">
       <span class="avatar-cont"
         ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>

@@ -1,19 +1,24 @@
-import { ParsedUserInt } from 'src/interfaces/ProfileInt';
+import { AggregateDataInt } from 'src/interfaces/AggregateDataInt';
 
-export const testUserData: ParsedUserInt[] = [
-  {
-    username: 'nhcarrigan',
-    avatar: 'https://www.nhcarrigan.com',
-    aggregate: 5,
-  },
-  {
-    username: 'nhcarrigan but best',
-    avatar: 'https://best.com',
-    aggregate: 10,
-  },
-  {
-    username: 'nhcarrigan but better',
-    avatar: 'https://better.com',
-    aggregate: 7,
-  },
-];
+export const testAggregateData: AggregateDataInt = {
+  updated: '1617045844967',
+  data: [
+    {
+      username: 'testing',
+      aggregate: 300,
+      avatar: 'https://google.com',
+      crowdin: {
+        words: 2,
+      },
+      forum: {
+        likes: 1,
+      },
+      github: {
+        commits: 12,
+      },
+      news: {
+        posts: 1,
+      },
+    },
+  ],
+};

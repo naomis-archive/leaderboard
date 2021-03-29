@@ -1,16 +1,16 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
-import { GetDataService } from './get-data.service';
+import { GetAggregateService } from './get-aggregate.service';
 
-describe('GetDataService', () => {
-  let service: GetDataService;
+describe('GetAggregateService', () => {
+  let service: GetAggregateService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
     });
-    service = TestBed.inject(GetDataService);
+    service = TestBed.inject(GetAggregateService);
   });
 
   it('should be created', () => {

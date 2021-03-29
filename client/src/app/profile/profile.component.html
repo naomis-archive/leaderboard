@@ -7,11 +7,12 @@
   NOTE: The new username field is optional - only submit that if you would like
   to update your leaderboard username.
 </p>
-<form *ngIf="loaded" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
   <label
     >Leaderboard Username:
     <input type="text" formControlName="username" required
   /></label>
+  <label>Password: <input type="password" formControlName="password" /></label>
   <label>Avatar URL: <input type="text" formControlName="avatar" /></label>
   <label
     >NEW Leaderboard Username: <input type="text" formControlName="newUsername"
@@ -36,9 +37,21 @@
 </form>
 <div class="error-message" *ngIf="error">{{ error }}</div>
 <div class="data-container" *ngIf="submitted">
-  <p>Crowdin: {{ userResult.crowdin }}</p>
-  <p>Forum: {{ userResult.forum }}</p>
-  <p>GitHub: {{ userResult.github }}</p>
-  <p>News: {{ userResult.news }}</p>
+  <p>
+    Crowdin - words translated:
+    {{ userResult.crowdin.words || "No contributions found..." }}
+  </p>
+  <p>
+    Forum - posts liked:
+    {{ userResult.forum.likes || "No contributions found..." }}
+  </p>
+  <p>
+    GitHub - commits made:
+    {{ userResult.github.commits || "No contributions found..." }}
+  </p>
+  <p>
+    News - posts published:
+    {{ userResult.news.posts || "No contributions found..." }}
+  </p>
   <p class="aggregate">Aggregate Score: {{ userResult.aggregate }}</p>
 </div>

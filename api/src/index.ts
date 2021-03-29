@@ -1,7 +1,6 @@
 import express from "express";
 import { getAllContribs } from "./controllers/getAllContribs";
 import Spinnies from "spinnies";
-import { sendData } from "./routes/sendData";
 import { FourOhFour } from "./routes/FourOhFour";
 import cors from "cors";
 import { readFile } from "fs/promises";
@@ -12,6 +11,9 @@ import { RewriteFrames } from "@sentry/integrations";
 import { logHandler } from "./utils/logHandler";
 import { connectDatabase } from "./controllers/database/dbConnect";
 import { getUserData, postUserData } from "./routes/userData";
+import { getAggregateData } from "./routes/aggregateData";
+import { AggregateDataInt } from "./interfaces/UserDataInt";
+import { getAggregateContribs } from "./controllers/getAggregateContribs";
 
 export const spinnies = new Spinnies();
 
@@ -46,11 +48,16 @@ Sentry.init({
 
   const contributionData = await getAllContribs();
 
+  const aggregateData: AggregateDataInt = await getAggregateContribs(
+    contributionData
+  );
+
   spinnies.succeed("fetch-data", { color: "green", text: "Got data!" });
 
   const allowedOrigins = [
     "https://leaderboard.nhcarrigan.com",
     "http://localhost:4200",
+    "http://localhost:8000",
   ];
 
   API.use(
@@ -69,11 +76,15 @@ Sentry.init({
 
   API.get("/", FourOhFour);
 
-  API.get("/get-data", (req, res) => sendData(req, res, contributionData));
-
   API.get("/user", async (req, res) => getUserData(req, res));
 
-  API.post("/user", async (req, res) => postUserData(req, res));
+  API.post("/user", async (req, res) =>
+    postUserData(req, res, contributionData, aggregateData)
+  );
+
+  API.get("/aggregate", async (req, res) =>
+    getAggregateData(req, res, aggregateData)
+  );
 
   API.use(FourOhFour);
 

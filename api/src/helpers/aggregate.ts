@@ -1,4 +1,4 @@
-export const aggregateContribs = (
+export const aggregate = (
   crowdin: number,
   forum: number,
   github: number,
