@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { UserDataInt, UserFormInt } from 'src/interfaces/ProfileInt';
 import { PostUserService } from '../post-user.service';
-import { GetAggregateService } from '../get-aggregate.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,11 +21,10 @@ export class ProfileComponent implements OnInit {
   });
 
   public userResult: UserDataInt | any;
-  public error: string | undefined;
+  public error = '';
   public submitted = false;
 
   constructor(
-    private getDataService: GetAggregateService,
     private postUserService: PostUserService,
     private formBuilder: FormBuilder
   ) {}

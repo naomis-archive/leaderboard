@@ -37,9 +37,21 @@
 </form>
 <div class="error-message" *ngIf="error">{{ error }}</div>
 <div class="data-container" *ngIf="submitted">
-  <p>Crowdin - words translated: {{ userResult.crowdin.words }}</p>
-  <p>Forum - posts liked: {{ userResult.forum.likes }}</p>
-  <p>GitHub - commits made: {{ userResult.github.commits }}</p>
-  <p>News - posts published: {{ userResult.news.posts }}</p>
+  <p>
+    Crowdin - words translated:
+    {{ userResult.crowdin.words || "No contributions found..." }}
+  </p>
+  <p>
+    Forum - posts liked:
+    {{ userResult.forum.likes || "No contributions found..." }}
+  </p>
+  <p>
+    GitHub - commits made:
+    {{ userResult.github.commits || "No contributions found..." }}
+  </p>
+  <p>
+    News - posts published:
+    {{ userResult.news.posts || "No contributions found..." }}
+  </p>
   <p class="aggregate">Aggregate Score: {{ userResult.aggregate }}</p>
 </div>

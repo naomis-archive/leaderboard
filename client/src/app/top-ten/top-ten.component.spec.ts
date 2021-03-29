@@ -1,11 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { testData } from 'src/data/testData';
-import { testUserData } from 'src/data/testUserData';
+import { testAggregateData } from 'src/data/testUserData';
 
 import { TopTenComponent } from './top-ten.component';
 
-fdescribe('TopTenComponent', () => {
+describe('TopTenComponent', () => {
   let component: TopTenComponent;
   let fixture: ComponentFixture<TopTenComponent>;
   let compiled: any;
@@ -17,7 +16,7 @@ fdescribe('TopTenComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(TopTenComponent);
     component = fixture.componentInstance;
-    component.data = testData;
+    component.data = testAggregateData;
     component.loaded = true;
     fixture.detectChanges();
     compiled = fixture.debugElement.nativeElement;
@@ -52,7 +51,7 @@ fdescribe('TopTenComponent', () => {
   it('should render the updated-on timestamp', () => {
     const text = compiled.querySelectorAll('p')[2];
     expect(text.textContent.trim()).toEqual(
-      `Updated on: ${testData.updated_on}`
+      `Updated on: ${testAggregateData.updated}`
     );
   });
 
@@ -60,7 +59,7 @@ fdescribe('TopTenComponent', () => {
     const tableHeader = compiled.querySelectorAll('.header-grid-3');
     const tableRows = compiled.querySelectorAll('.contrib-grid-3');
     expect(tableHeader.length).toEqual(1, 'does not have correct header');
-    expect(tableRows.length).toEqual(3, 'does not have correct rows');
+    expect(tableRows.length).toEqual(1, 'does not have correct rows');
   });
 
   it('should render the table header content', () => {
@@ -68,24 +67,5 @@ fdescribe('TopTenComponent', () => {
     expect(tableHeader.children[0].textContent.trim()).toBe('Avatar');
     expect(tableHeader.children[1].textContent.trim()).toBe('Username');
     expect(tableHeader.children[2].textContent.trim()).toBe('Aggregate Score');
-  });
-
-  it('should render the data in the correct order', () => {
-    const [first, second, third] = compiled.querySelectorAll('.contrib-grid-3');
-    expect(first.children[0].children[0].getAttribute('src')).toBe(
-      'https://best.com'
-    );
-    expect(first.children[1].textContent).toBe('nhcarrigan but best');
-    expect(first.children[2].textContent).toBe('10');
-    expect(second.children[0].children[0].getAttribute('src')).toBe(
-      'https://better.com'
-    );
-    expect(second.children[1].textContent).toBe('nhcarrigan but better');
-    expect(second.children[2].textContent).toBe('7');
-    expect(third.children[0].children[0].getAttribute('src')).toBe(
-      'https://www.nhcarrigan.com'
-    );
-    expect(third.children[1].textContent).toBe('nhcarrigan');
-    expect(third.children[2].textContent).toBe('5');
   });
 });

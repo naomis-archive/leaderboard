@@ -9,30 +9,10 @@ const navLinks = [
     index: 1,
   },
   {
-    name: 'Crowdin',
-    link: 'crowdin',
-    index: 2,
-  },
-  {
-    name: 'Forum',
-    link: 'forum',
-    index: 3,
-  },
-  {
-    name: 'GitHub',
-    link: 'github',
-    index: 4,
-  },
-  {
-    name: 'News',
-    link: 'news',
-    index: 5,
-  },
-  {
     name: 'My Profile',
     link: 'profile',
-    index: 6
-  }
+    index: 2,
+  },
 ];
 
 describe('NavComponent', () => {
@@ -58,14 +38,14 @@ describe('NavComponent', () => {
     expect(logo).toBeTruthy('does not render a logo');
   });
 
-  it('should render six nav link items', () => {
+  it('should render two nav link items', () => {
     const linkItems = compiled.querySelectorAll('li');
-    expect(linkItems.length).toEqual(6, 'does not have 6 link items');
+    expect(linkItems.length).toEqual(2, 'does not have 2 link items');
   });
 
   it('should have seven navigation links, including the logo', () => {
     const links = compiled.querySelectorAll('a');
-    expect(links.length).toEqual(7, 'does not render seven links');
+    expect(links.length).toEqual(3, 'does not render seven links');
   });
 
   it('should have link to freeCodeCamp', () => {
