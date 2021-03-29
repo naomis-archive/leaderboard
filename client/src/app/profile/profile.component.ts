@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { UserDataInt, UserFormInt } from 'src/interfaces/ProfileInt';
-import { aggregateContribs } from 'src/helpers/aggregateContributions';
 import { PostUserService } from '../post-user.service';
 import { GetAggregateService } from '../get-aggregate.service';
 

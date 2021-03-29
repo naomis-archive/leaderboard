@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { aggregateContribs } from 'src/helpers/aggregateContributions';
 import { AggregateDataInt } from 'src/interfaces/AggregateDataInt';
 import { GetAggregateService } from '../get-aggregate.service';
 
