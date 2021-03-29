@@ -13,6 +13,7 @@ import { GetAggregateService } from '../get-aggregate.service';
 export class ProfileComponent implements OnInit {
   public userForm = this.formBuilder.group({
     username: '',
+    password: '',
     avatar: '',
     newUsername: '',
     crowdin: '',
@@ -37,7 +38,12 @@ export class ProfileComponent implements OnInit {
     const targetUser: UserFormInt = this.userForm.value;
 
     if (!targetUser.username) {
-      this.error = 'Username is required!';
+      this.error = 'Username is required.';
+      return;
+    }
+
+    if (!targetUser.password) {
+      this.error = 'Password is required.';
       return;
     }
 
@@ -47,6 +53,7 @@ export class ProfileComponent implements OnInit {
       this.postUserService.postUser(targetUser).subscribe(
         (data) => {
           this.userResult = data;
+          this.error = '';
           this.submitted = true;
         },
         (error) => {

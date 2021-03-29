@@ -1,5 +1,7 @@
 export interface UserFormInt {
   username: string;
+  password: string;
+  avatar: string;
   newUsername: string;
   crowdin: string;
   forum: string;
