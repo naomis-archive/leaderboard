@@ -15,8 +15,7 @@ const htmlOpts = {
 
 export const getUserData = async (_: Request, res: Response): Promise<void> => {
   try {
-    const data = await UserModel.find();
-    res.status(200).json(data);
+    res.status(200).json({ message: "Coming soon!" });
   } catch (error) {
     errorHandler("get user data", error);
     res.json(error);
