@@ -31,6 +31,8 @@ export const testGithubData: GithubContribInt[] = [
     username: "nhcarrigan",
     name: "Nicholas Carrigan",
     commits: 39,
+    issues: 3,
+    pulls: 1,
     avatar: "https://avatars.githubusercontent.com/u/63889819?v=4",
     url: "https://github.com/nhcarrigan",
   },
