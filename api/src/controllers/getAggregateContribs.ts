@@ -8,7 +8,7 @@ export const getAggregateContribs = async (
   contribData: ContribDataInt
 ): Promise<AggregateDataInt> => {
   spinnies.add("aggregate", { color: "cyan", text: "Aggregating data..." });
-  const data: AggregateDataInt = {
+  const aggregated: AggregateDataInt = {
     data: [],
     updated: contribData.updated_on.toString(),
   };
@@ -29,7 +29,7 @@ export const getAggregateContribs = async (
       userNews
     );
 
-    data.data.push({
+    aggregated.data.push({
       username: user.username,
       aggregate: userAggregate,
       avatar: user.avatar,
@@ -54,5 +54,5 @@ export const getAggregateContribs = async (
     color: "green",
     text: "Aggregation complete!",
   });
-  return data;
+  return aggregated;
 };
