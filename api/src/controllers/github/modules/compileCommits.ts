@@ -24,6 +24,8 @@ export const compileCommits = async (
         username: commit.author.login,
         name: commit.commit.author.name,
         commits: 1,
+        issues: 0,
+        pulls: 0,
         avatar: commit.author.avatar_url,
         url: commit.author.html_url,
       };
