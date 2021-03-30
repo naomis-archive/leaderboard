@@ -23,10 +23,10 @@ export const getAggregateContribs = async (
     const userNews = news.find((el) => el.username === user.news);
     const userGithub = github.find((el) => el.username === user.github);
     const userAggregate = aggregate(
-      userCrowdin?.translations || 0,
-      userForum?.likes || 0,
-      userGithub?.commits || 0,
-      userNews?.posts || 0
+      userCrowdin,
+      userForum,
+      userGithub,
+      userNews
     );
 
     data.data.push({
@@ -41,6 +41,8 @@ export const getAggregateContribs = async (
       },
       github: {
         commits: userGithub?.commits || 0,
+        issues: userGithub?.issues || 0,
+        pulls: userGithub?.pulls || 0,
       },
       news: {
         posts: userNews?.posts || 0,

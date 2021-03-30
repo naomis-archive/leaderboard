@@ -22,6 +22,8 @@ export interface AggregateDataInt {
     };
     github: {
       commits: number;
+      issues: number;
+      pulls: number;
     };
     news: {
       posts: number;
