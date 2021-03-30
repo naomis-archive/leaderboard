@@ -100,7 +100,7 @@ suite("User Route", () => {
 
   test("clean up data...", async () => {
     await UserModel.deleteOne({ _id: cleanupId });
-    const response = await chai.request(API).get("/user");
-    assert.equal(response.body.length, 0, "did not clear test data");
+    const isNotDeleted = await UserModel.findOne({ _id: cleanupId });
+    assert.isNull(isNotDeleted, "did not clear test data");
   });
 });
