@@ -1,4 +1,5 @@
 import { RawIssueInt } from "../../../interfaces/github/RawIssueInt";
+import fetch from "node-fetch";
 
 export const getIssues = async (): Promise<RawIssueInt[]> => {
   const lastWeek = new Date(Date.now() - 604800000).toISOString();
