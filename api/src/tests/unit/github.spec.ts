@@ -219,6 +219,8 @@ const expectedResult: GithubContribInt[] = [
     username: "nhcarrigantest",
     name: "Nicholas Carrigan (he/him)",
     commits: 1,
+    issues: 0,
+    pulls: 0,
     avatar: "https://avatars.githubusercontent.com/u/63889819?v=4",
     url: "https://github.com/nhcarrigan",
   },

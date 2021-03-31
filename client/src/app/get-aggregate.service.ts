@@ -4,7 +4,6 @@ import { Observable, of } from 'rxjs';
 import { AggregateDataInt } from 'src/interfaces/AggregateDataInt';
 
 const URL = 'https://leaderboard-api.nhcarrigan.com/aggregate';
-
 @Injectable({
   providedIn: 'root',
 })

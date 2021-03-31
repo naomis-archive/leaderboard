@@ -15,6 +15,8 @@ export const testAggregateData: AggregateDataInt = {
       },
       github: {
         commits: 12,
+        issues: 1,
+        pulls: 3,
       },
       news: {
         posts: 1,

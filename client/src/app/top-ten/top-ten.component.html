@@ -17,7 +17,11 @@
         ><img class="avatar" [src]="cont.avatar" (error)="onImgError($event)"
       /></span>
       <span
-        >{{ cont.username }}</span
+        ><a
+          routerLink="/contributor"
+          [queryParams]="{ username: cont.username }"
+          >{{ cont.username }}</a
+        ></span
       >
       <span>{{ cont.aggregate }}</span>
     </div>

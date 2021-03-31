@@ -8,7 +8,7 @@ export const getAggregateContribs = async (
   contribData: ContribDataInt
 ): Promise<AggregateDataInt> => {
   spinnies.add("aggregate", { color: "cyan", text: "Aggregating data..." });
-  const data: AggregateDataInt = {
+  const aggregated: AggregateDataInt = {
     data: [],
     updated: contribData.updated_on.toString(),
   };
@@ -23,13 +23,13 @@ export const getAggregateContribs = async (
     const userNews = news.find((el) => el.username === user.news);
     const userGithub = github.find((el) => el.username === user.github);
     const userAggregate = aggregate(
-      userCrowdin?.translations || 0,
-      userForum?.likes || 0,
-      userGithub?.commits || 0,
-      userNews?.posts || 0
+      userCrowdin,
+      userForum,
+      userGithub,
+      userNews
     );
 
-    data.data.push({
+    aggregated.data.push({
       username: user.username,
       aggregate: userAggregate,
       avatar: user.avatar,
@@ -41,6 +41,8 @@ export const getAggregateContribs = async (
       },
       github: {
         commits: userGithub?.commits || 0,
+        issues: userGithub?.issues || 0,
+        pulls: userGithub?.pulls || 0,
       },
       news: {
         posts: userNews?.posts || 0,
@@ -52,5 +54,5 @@ export const getAggregateContribs = async (
     color: "green",
     text: "Aggregation complete!",
   });
-  return data;
+  return aggregated;
 };
