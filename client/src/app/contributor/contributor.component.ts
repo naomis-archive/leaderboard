@@ -27,9 +27,9 @@ export class ContributorComponent implements OnInit {
       this.loaded = true;
 
       this.route.queryParams.subscribe((params) => {
-        this.query = params['username'];
+        this.query = params.username;
         const target = this.data?.data.find(
-          (el) => el.username === params['username']
+          (el) => el.username === params.username
         );
         this.userData = target;
       });
