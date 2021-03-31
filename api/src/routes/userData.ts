@@ -154,7 +154,7 @@ export const postUserData = async (
     } else {
       aggregateData.data.push(updatedUser);
     }
-    res.status(200).json(targetUser);
+    res.status(200).json(updatedUser);
   } catch (error) {
     errorHandler("post user data", error);
     res.json(error);

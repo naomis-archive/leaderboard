@@ -6,29 +6,25 @@ import { API } from "../../index";
 chai.use(http);
 
 const mockData = {
-  username: "unit testing",
+  username: "nhcarrigan",
   password: "testing",
   avatar: "https://google.com",
-  crowdin: "unit testing crowdin",
-  forum: "unit testing forum",
-  github: "unit testing github",
-  news: "unit testing news",
+  crowdin: "nhcarrigan",
+  forum: "nhcarrigan",
+  github: "nhcarrigan",
+  news: "nhcarrigan",
 };
 
 const updatedData = {
-  username: "unit testing",
+  username: "nhcarrigan",
   password: "testing",
-  newUsername: "better unit testing",
   crowdin: "better crowdin",
 };
-
-let cleanupId = "";
 
 suite("User Route", () => {
   test("should return correct data on post", async () => {
     const response = await chai.request(API).post("/user").send(mockData);
     const actualData = response.body;
-    cleanupId = response.body._id;
     assert.equal(response.status, 200, "does not return status 200");
     assert.equal(
       actualData.username,
@@ -41,24 +37,59 @@ suite("User Route", () => {
       "does not send back correct avatar"
     );
     assert.equal(
-      actualData.crowdin,
-      mockData.crowdin,
-      "does not send back correct crowdin"
+      actualData.crowdin.words,
+      1,
+      "did not send back correct crowdin words"
     );
     assert.equal(
-      actualData.forum,
-      mockData.forum,
-      "does not send back correct forum"
+      actualData.crowdin.approvals,
+      5,
+      "did not send back correct crowdin approvals"
     );
     assert.equal(
-      actualData.github,
-      mockData.github,
-      "does not send back correct github"
+      actualData.crowdin.votes,
+      3,
+      "did not send back correct crowdin votes"
     );
     assert.equal(
-      actualData.news,
-      mockData.news,
-      "does not send back correct news"
+      actualData.forum.likes,
+      20,
+      "did not send back correct forum likes"
+    );
+    assert.equal(
+      actualData.forum.replies,
+      50,
+      "did not send back correct forum replies"
+    );
+    assert.equal(
+      actualData.forum.topics,
+      10,
+      "did not send back correct forum topics"
+    );
+    assert.equal(
+      actualData.github.commits,
+      39,
+      "did not send back correct github commits"
+    );
+    assert.equal(
+      actualData.github.issues,
+      3,
+      "did not send back correct github issues"
+    );
+    assert.equal(
+      actualData.github.pulls,
+      1,
+      "did not send back correct github pulls"
+    );
+    assert.equal(
+      actualData.news.posts,
+      3,
+      "did not send back correct news posts"
+    );
+    assert.equal(
+      actualData.aggregate,
+      1127,
+      "did not send back correct aggregate score"
     );
   });
 
@@ -68,7 +99,7 @@ suite("User Route", () => {
     assert.equal(response.status, 200, "does not return status 200");
     assert.equal(
       actualData.username,
-      updatedData.newUsername,
+      updatedData.username,
       "does not send back correct username"
     );
     assert.equal(
@@ -77,30 +108,59 @@ suite("User Route", () => {
       "does not send back correct avatar"
     );
     assert.equal(
-      actualData.crowdin,
-      updatedData.crowdin,
-      "does not send back correct crowdin"
+      actualData.crowdin.words,
+      0,
+      "did not send back correct crowdin words"
     );
     assert.equal(
-      actualData.forum,
-      mockData.forum,
-      "does not send back correct forum"
+      actualData.crowdin.approvals,
+      0,
+      "did not send back correct crowdin approvals"
     );
     assert.equal(
-      actualData.github,
-      mockData.github,
-      "does not send back correct github"
+      actualData.crowdin.votes,
+      0,
+      "did not send back correct crowdin votes"
     );
     assert.equal(
-      actualData.news,
-      mockData.news,
-      "does not send back correct news"
+      actualData.forum.likes,
+      20,
+      "did not send back correct forum likes"
     );
-  });
-
-  test("clean up data...", async () => {
-    await UserModel.deleteOne({ _id: cleanupId });
-    const isNotDeleted = await UserModel.findOne({ _id: cleanupId });
-    assert.isNull(isNotDeleted, "did not clear test data");
+    assert.equal(
+      actualData.forum.replies,
+      50,
+      "did not send back correct forum replies"
+    );
+    assert.equal(
+      actualData.forum.topics,
+      10,
+      "did not send back correct forum topics"
+    );
+    assert.equal(
+      actualData.github.commits,
+      39,
+      "did not send back correct github commits"
+    );
+    assert.equal(
+      actualData.github.issues,
+      3,
+      "did not send back correct github issues"
+    );
+    assert.equal(
+      actualData.github.pulls,
+      1,
+      "did not send back correct github pulls"
+    );
+    assert.equal(
+      actualData.news.posts,
+      3,
+      "did not send back correct news posts"
+    );
+    assert.equal(
+      actualData.aggregate,
+      1127,
+      "did not send back correct aggregate score"
+    );
   });
 });
