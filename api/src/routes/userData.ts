@@ -129,6 +129,8 @@ export const postUserData = async (
       },
       forum: {
         likes: userForum?.likes || 0,
+        replies: userForum?.replies || 0,
+        topics: userForum?.topics || 0,
       },
       github: {
         commits: userGithub?.commits || 0,

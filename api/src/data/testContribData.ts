@@ -19,7 +19,8 @@ export const testForumData: ForumContribInt[] = [
     username: "nhcarrigan",
     name: "Nicholas Carrigan",
     likes: 20,
-    liked: 5,
+    topics: 10,
+    replies: 50,
     avatar:
       "https://sjc1.discourse-cdn.com/freecodecamp/user_avatar/forum.freecodecamp.org/nhcarrigan/240/185808_2.png",
     url: "https://forum.freecodecamp.org/u/nhcarrigan",

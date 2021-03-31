@@ -38,6 +38,8 @@ export const getAggregateContribs = async (
       },
       forum: {
         likes: userForum?.likes || 0,
+        topics: userForum?.topics || 0,
+        replies: userForum?.replies || 0,
       },
       github: {
         commits: userGithub?.commits || 0,

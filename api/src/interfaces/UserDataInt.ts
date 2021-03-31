@@ -19,6 +19,8 @@ export interface AggregateDataInt {
     };
     forum: {
       likes: number;
+      topics: number;
+      replies: number;
     };
     github: {
       commits: number;

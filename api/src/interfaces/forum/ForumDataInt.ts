@@ -4,6 +4,7 @@ export interface ForumDataInt {
     likes_received: number;
     likes_given: number;
     topics_entered: number;
+    topic_count: number;
     post_count: number;
     posts_read: number;
     days_visited: number;
