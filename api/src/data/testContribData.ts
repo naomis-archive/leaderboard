@@ -9,6 +9,8 @@ export const testCrowdinData: CrowdinContribsInt[] = [
     username: "nhcarrigan",
     languages: ["English"],
     translations: 1,
+    approvals: 5,
+    votes: 3,
     avatar:
       "https://production-enterprise-static.downloads.crowdin.com/avatar/232/medium/6ac64de32f21629b968e8a3a55d76a69.jpg",
   },

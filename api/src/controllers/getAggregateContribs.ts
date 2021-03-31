@@ -35,6 +35,8 @@ export const getAggregateContribs = async (
       avatar: user.avatar,
       crowdin: {
         words: userCrowdin?.translations || 0,
+        approvals: userCrowdin?.approvals || 0,
+        votes: userCrowdin?.votes || 0,
       },
       forum: {
         likes: userForum?.likes || 0,

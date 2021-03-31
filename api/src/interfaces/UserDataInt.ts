@@ -16,6 +16,8 @@ export interface AggregateDataInt {
     avatar: string;
     crowdin: {
       words: number;
+      approvals: number;
+      votes: number;
     };
     forum: {
       likes: number;

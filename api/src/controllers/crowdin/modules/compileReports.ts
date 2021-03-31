@@ -20,6 +20,8 @@ export const compileReports = (
         const languages = contributor.languages.map((lang) => lang.name);
         const translations = contributor.translated;
         const avatar = contributor.user.avatarUrl;
+        const votes = contributor.voted;
+        const approvals = contributor.approved;
 
         const exists = compiled.find((el) => el.name === name);
         if (!exists) {
@@ -28,6 +30,8 @@ export const compileReports = (
             username,
             languages,
             translations,
+            approvals,
+            votes,
             avatar,
           });
           continue;
@@ -44,7 +48,9 @@ export const compileReports = (
 
     const sorted = compiled
       .sort((a, b) => b.translations - a.translations)
-      .filter((cont) => cont.translations > 0);
+      .filter(
+        (cont) => cont.translations > 0 || cont.approvals > 0 || cont.votes > 0
+      );
 
     return sorted;
   } catch (error) {
