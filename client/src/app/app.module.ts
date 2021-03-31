@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GetAggregateService } from './get-aggregate.service';
+import { ContributorComponent } from './contributor/contributor.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { GetAggregateService } from './get-aggregate.service';
     TopTenComponent,
     FooterComponent,
     ProfileComponent,
+    ContributorComponent,
   ],
   imports: [
     BrowserModule,

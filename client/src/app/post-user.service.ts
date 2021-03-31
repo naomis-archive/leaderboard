@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { UserDataInt, UserFormInt } from 'src/interfaces/ProfileInt';
 import { GetAggregateService } from './get-aggregate.service';
 
-const url = 'https://leaderboard-api.nhcarrigan.com/user';
+const url = 'http://localhost:8000/user';
 @Injectable({
   providedIn: 'root',
 })
