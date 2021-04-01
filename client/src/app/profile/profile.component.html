@@ -37,21 +37,19 @@
 </form>
 <div class="error-message" *ngIf="error">{{ error }}</div>
 <div class="data-container" *ngIf="submitted">
-  <p>
-    Crowdin - words translated:
-    {{ userResult.crowdin.words || "No contributions found..." }}
-  </p>
-  <p>
-    Forum - posts liked:
-    {{ userResult.forum.likes || "No contributions found..." }}
-  </p>
-  <p>
-    GitHub - commits made:
-    {{ userResult.github.commits || "No contributions found..." }}
-  </p>
-  <p>
-    News - posts published:
-    {{ userResult.news.posts || "No contributions found..." }}
-  </p>
-  <p class="aggregate">Aggregate Score: {{ userResult.aggregate }}</p>
+  <p class="aggregate">Aggregate Score: {{ userResult.aggregate || 0 }}</p>
+  <h2>Crowdin</h2>
+  <p>Words Translated: {{ userResult.crowdin.words || 0 }}</p>
+  <p>Words Approved: {{ userResult.crowdin.approvals || 0 }}</p>
+  <p>Votes on Translations: {{ userResult.crowdin.votes || 0 }}</p>
+  <h2>Forum</h2>
+  <p>Posts Liked: {{ userResult.forum.likes || 0 }}</p>
+  <p>Topics Opened: {{ userResult.forum.topics || 0 }}</p>
+  <p>Replies Posted: {{ userResult.forum.replies || 0}}</p>
+  <h2>GitHub</h2>
+  <p>Commits to Main: {{ userResult.github.commits || 0 }}</p>
+  <p>Active Issues: {{ userResult.github.issues || 0 }}</p>
+  <p>Active Pull Requests: {{ userResult.github.pulls || 0 }}</p>
+  <h2>News</h2>
+  <p>Published Posts: {{ userResult.news.posts || 0 }}</p>
 </div>

@@ -3,5 +3,7 @@ export interface CrowdinContribsInt {
   username: string;
   languages: string[];
   translations: number;
+  approvals: number;
+  votes: number;
   avatar: string;
 }

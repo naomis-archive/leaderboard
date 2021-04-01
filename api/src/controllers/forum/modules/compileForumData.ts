@@ -18,11 +18,13 @@ export const compileForumData = async (
       const parsedAvatarString =
         "https://sjc1.discourse-cdn.com/freecodecamp" +
         user.user.avatar_template.replace("{size}", "240");
+
       const properData: ForumContribInt = {
         username: user.user.username,
         name: user.user.name,
         likes: user.likes_received,
-        liked: user.likes_given,
+        replies: user.post_count,
+        topics: user.topic_count,
         avatar: parsedAvatarString,
         url: `https://forum.freecodecamp.org/u/${user.user.username}`,
       };

@@ -9,6 +9,8 @@ export const testCrowdinData: CrowdinContribsInt[] = [
     username: "nhcarrigan",
     languages: ["English"],
     translations: 1,
+    approvals: 5,
+    votes: 3,
     avatar:
       "https://production-enterprise-static.downloads.crowdin.com/avatar/232/medium/6ac64de32f21629b968e8a3a55d76a69.jpg",
   },
@@ -19,7 +21,8 @@ export const testForumData: ForumContribInt[] = [
     username: "nhcarrigan",
     name: "Nicholas Carrigan",
     likes: 20,
-    liked: 5,
+    topics: 10,
+    replies: 50,
     avatar:
       "https://sjc1.discourse-cdn.com/freecodecamp/user_avatar/forum.freecodecamp.org/nhcarrigan/240/185808_2.png",
     url: "https://forum.freecodecamp.org/u/nhcarrigan",

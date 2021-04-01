@@ -9,9 +9,13 @@ export interface AggregateUserInt {
   avatar: string;
   crowdin: {
     words: number;
+    approvals: number;
+    votes: number;
   };
   forum: {
     likes: number;
+    topics: number;
+    replies: number;
   };
   github: {
     commits: number;

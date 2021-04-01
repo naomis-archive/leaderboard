@@ -98,20 +98,37 @@ describe('ProfileComponent', () => {
     component.submitted = true;
     fixture.detectChanges();
     const result = compiled.querySelector('.data-container').children;
-    expect(result[0].textContent.trim()).toBe('Crowdin - words translated: 2');
-    expect(result[1].textContent.trim()).toBe('Forum - posts liked: 1');
-    expect(result[2].textContent.trim()).toBe(
-      'GitHub - commits made: 12'
-    );
-    expect(result[3].textContent.trim()).toBe('News - posts published: 1');
-    expect(result[4].textContent.trim()).toBe('Aggregate Score: 300');
+    expect(result[0].textContent.trim()).toBe('Aggregate Score: 300');
+    expect(result[1].textContent.trim()).toBe('Crowdin');
+    expect(result[2].textContent.trim()).toBe('Words Translated: 2');
+    expect(result[3].textContent.trim()).toBe('Words Approved: 3');
+    expect(result[4].textContent.trim()).toBe('Votes on Translations: 1');
+    expect(result[5].textContent.trim()).toBe('Forum');
+    expect(result[6].textContent.trim()).toBe('Posts Liked: 1');
+    expect(result[7].textContent.trim()).toBe('Topics Opened: 2');
+    expect(result[8].textContent.trim()).toBe('Replies Posted: 3');
+    expect(result[9].textContent.trim()).toBe('GitHub');
+    expect(result[10].textContent.trim()).toBe('Commits to Main: 12');
+    expect(result[11].textContent.trim()).toBe('Active Issues: 1');
+    expect(result[12].textContent.trim()).toBe('Active Pull Requests: 3');
+    expect(result[13].textContent.trim()).toBe('News');
+    expect(result[14].textContent.trim()).toBe('Published Posts: 1');
   });
 
-  it('should handle the returned data correctly (with no username)', () => {
+  it('should show an error with no username', () => {
     component.userForm.controls.username.setValue('');
     component.onSubmit(false);
     fixture.detectChanges();
     const result = compiled.querySelector('.error-message');
     expect(result.textContent.trim()).toBe('Username is required.');
+  });
+
+  it('should show an error with no password', () => {
+    component.userForm.controls.username.setValue('hi');
+    component.userForm.controls.password.setValue('');
+    component.onSubmit(false);
+    fixture.detectChanges();
+    const result = compiled.querySelector('.error-message');
+    expect(result.textContent.trim()).toBe('Password is required.');
   });
 });

@@ -126,9 +126,13 @@ export const postUserData = async (
       avatar: targetUser.avatar,
       crowdin: {
         words: userCrowdin?.translations || 0,
+        approvals: userCrowdin?.approvals || 0,
+        votes: userCrowdin?.votes || 0,
       },
       forum: {
         likes: userForum?.likes || 0,
+        replies: userForum?.replies || 0,
+        topics: userForum?.topics || 0,
       },
       github: {
         commits: userGithub?.commits || 0,
@@ -150,7 +154,7 @@ export const postUserData = async (
     } else {
       aggregateData.data.push(updatedUser);
     }
-    res.status(200).json(targetUser);
+    res.status(200).json(updatedUser);
   } catch (error) {
     errorHandler("post user data", error);
     res.json(error);

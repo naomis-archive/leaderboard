@@ -64,6 +64,8 @@ const expectedResult: CrowdinContribsInt[] = [
     username: "nhcarrigantest",
     languages: ["TypeScript"],
     translations: 4000,
+    approvals: 1000,
+    votes: 5000,
     avatar: "https://localhost:8000/avatar",
   },
 ];
