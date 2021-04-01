@@ -46,13 +46,19 @@ Sentry.init({
     text: "Getting contribution data...",
   });
 
-  const contributionData = await getAllContribs();
+  let contributionData = await getAllContribs();
 
-  const aggregateData: AggregateDataInt = await getAggregateContribs(
+  let aggregateData: AggregateDataInt = await getAggregateContribs(
     contributionData
   );
 
   spinnies.succeed("fetch-data", { color: "green", text: "Got data!" });
+
+  setInterval(async () => {
+    logHandler.log("info", "Updating contribution data");
+    contributionData = await getAllContribs();
+    aggregateData = await getAggregateContribs(contributionData);
+  }, 86400000);
 
   const allowedOrigins = [
     "https://leaderboard.nhcarrigan.com",
