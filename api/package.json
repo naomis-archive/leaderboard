@@ -65,7 +65,7 @@
     "express": "^4.17.1",
     "mongo-sanitize": "^1.1.0",
     "mongoose": "^5.12.2",
-    "mongoose-encryption": "^2.0.3",
+    "mongoose-encryption": "^2.1.0",
     "node-fetch": "^2.6.1",
     "sanitize-html": "^2.3.3",
     "spinnies": "^0.5.1",
