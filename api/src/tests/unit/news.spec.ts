@@ -56,8 +56,7 @@ const mockNewsData = [
       meta_description: null,
       url: "https://www.freecodecamp.org/news/author/nhcarrigan/",
     },
-    url:
-      "https://www.freecodecamp.org/news/windows-terminal-themes-color-schemes-powershell-customize/",
+    url: "https://www.freecodecamp.org/news/windows-terminal-themes-color-schemes-powershell-customize/",
     excerpt:
       "I recently set up and configured Windows Terminal for my local development\nenvironment. In this article, I will walk you through the steps to configure\nyour own Terminal.\n\nIf you have not done so already, you can download Windows Terminal from the\nMicrosoft Store [https://aka.ms/terminal] if you are on Windows 10. Windows\nTerminal is not available on earlier versions of Windows.\n\nHow to Configure your PowerShell Selections\nImage demonstrating the multi-tab functionality offered by Windows Termin",
     reading_time: 9,
@@ -122,8 +121,7 @@ const mockNewsData = [
       meta_description: null,
       url: "https://www.freecodecamp.org/news/author/nhcarrigan/",
     },
-    url:
-      "https://www.freecodecamp.org/news/windows-terminal-themes-color-schemes-powershell-customize/",
+    url: "https://www.freecodecamp.org/news/windows-terminal-themes-color-schemes-powershell-customize/",
     excerpt:
       "I recently set up and configured Windows Terminal for my local development\nenvironment. In this article, I will walk you through the steps to configure\nyour own Terminal.\n\nIf you have not done so already, you can download Windows Terminal from the\nMicrosoft Store [https://aka.ms/terminal] if you are on Windows 10. Windows\nTerminal is not available on earlier versions of Windows.\n\nHow to Configure your PowerShell Selections\nImage demonstrating the multi-tab functionality offered by Windows Termin",
     reading_time: 9,
