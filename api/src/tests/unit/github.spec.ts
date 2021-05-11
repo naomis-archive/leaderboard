@@ -23,11 +23,9 @@ const mockGithubData: RawCommitInt[] = [
         "Merge pull request #8 from nhcarrigan/feat/add-archive\n\ndocs: section on old projects",
       tree: {
         sha: "53efcfd645cf24dfb9b2517b3dd658eb2a3664e1",
-        url:
-          "https://api.github.com/repos/nhcarrigan/nhcarrigan/git/trees/53efcfd645cf24dfb9b2517b3dd658eb2a3664e1",
+        url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/git/trees/53efcfd645cf24dfb9b2517b3dd658eb2a3664e1",
       },
-      url:
-        "https://api.github.com/repos/nhcarrigan/nhcarrigan/git/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
+      url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/git/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
       comment_count: 0,
       verification: {
         verified: true,
@@ -38,8 +36,7 @@ const mockGithubData: RawCommitInt[] = [
           "tree 53efcfd645cf24dfb9b2517b3dd658eb2a3664e1\nparent 3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933\nparent 4e524c71c2b1b2a132e075b24cf3b6503b3e3789\nauthor Nicholas Carrigan (he/him) <nhcarrigan@gmail.com> 1613772987 -0800\ncommitter GitHub <noreply@github.com> 1613772987 -0800\n\nMerge pull request #8 from nhcarrigan/feat/add-archive\n\ndocs: section on old projects",
       },
     },
-    url:
-      "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
+    url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
     html_url:
       "https://github.com/nhcarrigan/nhcarrigan/commit/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
     comments_url:
@@ -94,15 +91,13 @@ const mockGithubData: RawCommitInt[] = [
     parents: [
       {
         sha: "3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933",
-        url:
-          "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933",
+        url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933",
         html_url:
           "https://github.com/nhcarrigan/nhcarrigan/commit/3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933",
       },
       {
         sha: "4e524c71c2b1b2a132e075b24cf3b6503b3e3789",
-        url:
-          "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/4e524c71c2b1b2a132e075b24cf3b6503b3e3789",
+        url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/4e524c71c2b1b2a132e075b24cf3b6503b3e3789",
         html_url:
           "https://github.com/nhcarrigan/nhcarrigan/commit/4e524c71c2b1b2a132e075b24cf3b6503b3e3789",
       },
@@ -127,11 +122,9 @@ const mockGithubData: RawCommitInt[] = [
         "Merge pull request #8 from nhcarrigan/feat/add-archive\n\ndocs: section on old projects",
       tree: {
         sha: "53efcfd645cf24dfb9b2517b3dd658eb2a3664e1",
-        url:
-          "https://api.github.com/repos/nhcarrigan/nhcarrigan/git/trees/53efcfd645cf24dfb9b2517b3dd658eb2a3664e1",
+        url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/git/trees/53efcfd645cf24dfb9b2517b3dd658eb2a3664e1",
       },
-      url:
-        "https://api.github.com/repos/nhcarrigan/nhcarrigan/git/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
+      url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/git/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
       comment_count: 0,
       verification: {
         verified: true,
@@ -142,8 +135,7 @@ const mockGithubData: RawCommitInt[] = [
           "tree 53efcfd645cf24dfb9b2517b3dd658eb2a3664e1\nparent 3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933\nparent 4e524c71c2b1b2a132e075b24cf3b6503b3e3789\nauthor Nicholas Carrigan (he/him) <nhcarrigan@gmail.com> 1613772987 -0800\ncommitter GitHub <noreply@github.com> 1613772987 -0800\n\nMerge pull request #8 from nhcarrigan/feat/add-archive\n\ndocs: section on old projects",
       },
     },
-    url:
-      "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
+    url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
     html_url:
       "https://github.com/nhcarrigan/nhcarrigan/commit/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
     comments_url:
@@ -198,15 +190,13 @@ const mockGithubData: RawCommitInt[] = [
     parents: [
       {
         sha: "3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933",
-        url:
-          "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933",
+        url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933",
         html_url:
           "https://github.com/nhcarrigan/nhcarrigan/commit/3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933",
       },
       {
         sha: "4e524c71c2b1b2a132e075b24cf3b6503b3e3789",
-        url:
-          "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/4e524c71c2b1b2a132e075b24cf3b6503b3e3789",
+        url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/4e524c71c2b1b2a132e075b24cf3b6503b3e3789",
         html_url:
           "https://github.com/nhcarrigan/nhcarrigan/commit/4e524c71c2b1b2a132e075b24cf3b6503b3e3789",
       },
