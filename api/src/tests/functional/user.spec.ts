@@ -1,6 +1,5 @@
 import chai, { assert } from "chai";
 import http from "chai-http";
-import UserModel from "../../data/models/UserModel";
 import { API } from "../../index";
 
 chai.use(http);
