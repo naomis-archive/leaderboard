@@ -4,8 +4,8 @@
   "description": "A leaderboard thing I guess",
   "main": "index.js",
   "engines": {
-    "node": "^15.11.0",
-    "npm": "^7.6.0"
+    "node": "^16.2.0",
+    "npm": "^7.13.0"
   },
   "scripts": {
     "postinstall": "npm-run-all -p install:**",
