@@ -98,8 +98,7 @@ Sentry.init({
 
   const httpServer = http.createServer(API);
 
-  const httpPort =
-    process.env.NODE_ENV === "production" ? 8080 : process.env.PORT || 8080;
+  const httpPort = 3080;
 
   httpServer.listen(httpPort, () => {
     logHandler.log("http", `HTTP server running on port ${httpPort}`);
@@ -126,8 +125,8 @@ Sentry.init({
     };
     const httpsServer = https.createServer(credentails, API);
 
-    httpsServer.listen(8443, () => {
-      logHandler.log("http", "HTTPS Server running on port 443!");
+    httpsServer.listen(3443, () => {
+      logHandler.log("http", "HTTPS Server running on port 3443!");
     });
   }
 })();
