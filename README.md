@@ -8,12 +8,6 @@ This project is not yet an official freeCodeCamp application.
 
 The client is built with Angular and TypeScript, and the API is built with TypeScript and Express.
 
-![](https://img.shields.io/codeclimate/maintainability/nhcarrigan/leaderboard)
-![](https://img.shields.io/codeclimate/issues/nhcarrigan/leaderboard)
-![](https://img.shields.io/codeclimate/tech-debt/nhcarrigan/leaderboard)
-![](https://img.shields.io/lgtm/alerts/github/nhcarrigan/leaderboard)
-![](https://img.shields.io/lgtm/grade/javascript/github/nhcarrigan/leaderboard)
-
 ## Live Version
 
 This page is currently deployed. [View the live website.](https://leaderboard.nhcarrigan.com)
