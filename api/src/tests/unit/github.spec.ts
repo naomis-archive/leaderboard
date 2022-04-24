@@ -10,7 +10,7 @@ const mockGithubData: RawCommitInt[] = [
       "MDY6Q29tbWl0Mjc5NjU3NTk0OmJkYzE1ZTE2OGY1MmM3MWI1MTU3ZWQyMWFjYTgzM2RjZDU0NTZjNWQ=",
     commit: {
       author: {
-        name: "Nicholas Carrigan (he/him)",
+        name: "Naomi Carrigan (he/him)",
         email: "nhcarrigan@gmail.com",
         date: "2021-02-19T22:16:27Z",
       },
@@ -33,7 +33,7 @@ const mockGithubData: RawCommitInt[] = [
         signature:
           "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJgMDi7CRBK7hj4Ov3rIwAAdHIIACKFveVwhmS0hcHweqvzLSlj\nfclJ/PdfOYu6rSbnTQ0tRa0haYvSI4X6p7WnuRjWiFaxwCfJvMWpc6j7W3vt8Y9q\nHiTtE5llIU3DMuMLe9hS9GBE9TWSs+uh06GEI0YL+AejdnMkwonapxRYc5bTAQJv\nywJTFGYMgmCZ103FHjQoP/JrB3Symq7U5C3sfJ/mLwhn+GbwsxPAVRPEDpjSQdUU\nY7SR0mFC4nCIXJbGuPkiKAQxnZl8yaAKeA4ZxuJmEsJEL4B7/t4Gb8ygXfBl/x37\nF+q9GqErisL9V8haZVY3ZG7UUlGHEK3YsCaR3LWulgVeEZZwb015Sw+Da9rGfXc=\n=jmdj\n-----END PGP SIGNATURE-----\n",
         payload:
-          "tree 53efcfd645cf24dfb9b2517b3dd658eb2a3664e1\nparent 3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933\nparent 4e524c71c2b1b2a132e075b24cf3b6503b3e3789\nauthor Nicholas Carrigan (he/him) <nhcarrigan@gmail.com> 1613772987 -0800\ncommitter GitHub <noreply@github.com> 1613772987 -0800\n\nMerge pull request #8 from nhcarrigan/feat/add-archive\n\ndocs: section on old projects",
+          "tree 53efcfd645cf24dfb9b2517b3dd658eb2a3664e1\nparent 3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933\nparent 4e524c71c2b1b2a132e075b24cf3b6503b3e3789\nauthor Naomi Carrigan (he/him) <nhcarrigan@gmail.com> 1613772987 -0800\ncommitter GitHub <noreply@github.com> 1613772987 -0800\n\nMerge pull request #8 from nhcarrigan/feat/add-archive\n\ndocs: section on old projects",
       },
     },
     url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
@@ -109,7 +109,7 @@ const mockGithubData: RawCommitInt[] = [
       "MDY6Q29tbWl0Mjc5NjU3NTk0OmJkYzE1ZTE2OGY1MmM3MWI1MTU3ZWQyMWFjYTgzM2RjZDU0NTZjNWQ=",
     commit: {
       author: {
-        name: "Nicholas Carrigan (he/him)",
+        name: "Naomi Carrigan (he/him)",
         email: "nhcarrigan@gmail.com",
         date: "2021-02-19T22:16:27Z",
       },
@@ -132,7 +132,7 @@ const mockGithubData: RawCommitInt[] = [
         signature:
           "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJgMDi7CRBK7hj4Ov3rIwAAdHIIACKFveVwhmS0hcHweqvzLSlj\nfclJ/PdfOYu6rSbnTQ0tRa0haYvSI4X6p7WnuRjWiFaxwCfJvMWpc6j7W3vt8Y9q\nHiTtE5llIU3DMuMLe9hS9GBE9TWSs+uh06GEI0YL+AejdnMkwonapxRYc5bTAQJv\nywJTFGYMgmCZ103FHjQoP/JrB3Symq7U5C3sfJ/mLwhn+GbwsxPAVRPEDpjSQdUU\nY7SR0mFC4nCIXJbGuPkiKAQxnZl8yaAKeA4ZxuJmEsJEL4B7/t4Gb8ygXfBl/x37\nF+q9GqErisL9V8haZVY3ZG7UUlGHEK3YsCaR3LWulgVeEZZwb015Sw+Da9rGfXc=\n=jmdj\n-----END PGP SIGNATURE-----\n",
         payload:
-          "tree 53efcfd645cf24dfb9b2517b3dd658eb2a3664e1\nparent 3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933\nparent 4e524c71c2b1b2a132e075b24cf3b6503b3e3789\nauthor Nicholas Carrigan (he/him) <nhcarrigan@gmail.com> 1613772987 -0800\ncommitter GitHub <noreply@github.com> 1613772987 -0800\n\nMerge pull request #8 from nhcarrigan/feat/add-archive\n\ndocs: section on old projects",
+          "tree 53efcfd645cf24dfb9b2517b3dd658eb2a3664e1\nparent 3bd1fa6382fb416a3e6d11d2a1c1c47cc7817933\nparent 4e524c71c2b1b2a132e075b24cf3b6503b3e3789\nauthor Naomi Carrigan (he/him) <nhcarrigan@gmail.com> 1613772987 -0800\ncommitter GitHub <noreply@github.com> 1613772987 -0800\n\nMerge pull request #8 from nhcarrigan/feat/add-archive\n\ndocs: section on old projects",
       },
     },
     url: "https://api.github.com/repos/nhcarrigan/nhcarrigan/commits/bdc15e168f52c71b5157ed21aca833dcd5456c5d",
@@ -207,7 +207,7 @@ const mockGithubData: RawCommitInt[] = [
 const expectedResult: GithubContribInt[] = [
   {
     username: "nhcarrigantest",
-    name: "Nicholas Carrigan (he/him)",
+    name: "Naomi Carrigan (he/him)",
     commits: 1,
     issues: 0,
     pulls: 0,

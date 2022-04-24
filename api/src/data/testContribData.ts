@@ -5,7 +5,7 @@ import { NewsContribInt } from "../interfaces/news/NewsContribInt";
 
 export const testCrowdinData: CrowdinContribsInt[] = [
   {
-    name: "Nicholas Carrigan",
+    name: "Naomi Carrigan",
     username: "nhcarrigan",
     languages: ["English"],
     translations: 1,
@@ -19,7 +19,7 @@ export const testCrowdinData: CrowdinContribsInt[] = [
 export const testForumData: ForumContribInt[] = [
   {
     username: "nhcarrigan",
-    name: "Nicholas Carrigan",
+    name: "Naomi Carrigan",
     likes: 20,
     topics: 10,
     replies: 50,
@@ -32,7 +32,7 @@ export const testForumData: ForumContribInt[] = [
 export const testGithubData: GithubContribInt[] = [
   {
     username: "nhcarrigan",
-    name: "Nicholas Carrigan",
+    name: "Naomi Carrigan",
     commits: 39,
     issues: 3,
     pulls: 1,
@@ -43,7 +43,7 @@ export const testGithubData: GithubContribInt[] = [
 
 export const testNewsData: NewsContribInt[] = [
   {
-    name: "Nicholas Carrigan",
+    name: "Naomi Carrigan",
     username: "nhcarrigan",
     url: "https://www.freecodecamp.org/news/author/nhcarrigan/",
     avatar:

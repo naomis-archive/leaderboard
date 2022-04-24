@@ -18,7 +18,7 @@ const mockFinalReport: FinalReportInt[] = [
         user: {
           id: "12",
           username: "nhcarrigantest",
-          fullName: "Nicholas Carrigan (nhcarrigan)",
+          fullName: "Naomi Carrigan (nhcarrigan)",
           avatarUrl: "https://localhost:8000/avatar",
         },
         languages: [
@@ -60,7 +60,7 @@ const mockFinalReport: FinalReportInt[] = [
 
 const expectedResult: CrowdinContribsInt[] = [
   {
-    name: "Nicholas Carrigan (nhcarrigan)",
+    name: "Naomi Carrigan (nhcarrigan)",
     username: "nhcarrigantest",
     languages: ["TypeScript"],
     translations: 4000,

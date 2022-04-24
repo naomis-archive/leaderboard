@@ -25,7 +25,7 @@ const mockNewsData = [
     authors: [
       {
         id: "5fd3a6dfe6787e098393da09",
-        name: "Nicholas Carrigan",
+        name: "Naomi Carrigan",
         slug: "nhcarrigantest",
         profile_image:
           "https://www.freecodecamp.org/news/content/images/2020/12/profile.jpg",
@@ -42,7 +42,7 @@ const mockNewsData = [
     ],
     primary_author: {
       id: "5fd3a6dfe6787e098393da09",
-      name: "Nicholas Carrigan",
+      name: "Naomi Carrigan",
       slug: "nhcarrigantest",
       profile_image:
         "https://www.freecodecamp.org/news/content/images/2020/12/profile.jpg",
@@ -90,7 +90,7 @@ const mockNewsData = [
     authors: [
       {
         id: "5fd3a6dfe6787e098393da09",
-        name: "Nicholas Carrigan",
+        name: "Naomi Carrigan",
         slug: "nhcarrigantest",
         profile_image:
           "https://www.freecodecamp.org/news/content/images/2020/12/profile.jpg",
@@ -107,7 +107,7 @@ const mockNewsData = [
     ],
     primary_author: {
       id: "5fd3a6dfe6787e098393da09",
-      name: "Nicholas Carrigan",
+      name: "Naomi Carrigan",
       slug: "nhcarrigan",
       profile_image:
         "https://www.freecodecamp.org/news/content/images/2020/12/profile.jpg",
@@ -138,7 +138,7 @@ const mockNewsData = [
 
 const expectedResult: NewsContribInt[] = [
   {
-    name: "Nicholas Carrigan",
+    name: "Naomi Carrigan",
     username: "nhcarrigantest",
     url: "https://www.freecodecamp.org/news/author/nhcarrigan/",
     avatar:

@@ -17,7 +17,7 @@ const mockForumData: ForumDataInt = {
       user: {
         id: 1222,
         username: "nhcarrigantest",
-        name: "Nicholas Carrigan",
+        name: "Naomi Carrigan",
         avatar_template:
           "/user_avatar/forum.freecodecamp.org/nhcarrigan/{size}/185808_2.png",
         title: "Open sourcerer",
@@ -35,7 +35,7 @@ const mockForumData: ForumDataInt = {
       user: {
         id: 1222,
         username: "nhcarrigan",
-        name: "Nicholas Carrigan",
+        name: "Naomi Carrigan",
         avatar_template:
           "/user_avatar/forum.freecodecamp.org/nhcarrigan/{size}/185808_2.png",
         title: "Open sourcerer",
@@ -52,7 +52,7 @@ const mockForumData: ForumDataInt = {
 const mockResult: ForumContribInt[] = [
   {
     username: "nhcarrigantest",
-    name: "Nicholas Carrigan",
+    name: "Naomi Carrigan",
     likes: 100,
     replies: 3,
     topics: 5,

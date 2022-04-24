@@ -28,7 +28,7 @@ describe('FooterComponent', () => {
   it('should have a link to my homepage', () => {
     const homepage = compiled.querySelectorAll('a')[0];
     expect(homepage.textContent).toEqual(
-      'Prototype Designed by Nicholas Carrigan',
+      'Prototype Designed by Naomi Carrigan',
       'does not have correct homepage text'
     );
     expect(homepage.getAttribute('href')).toEqual(
